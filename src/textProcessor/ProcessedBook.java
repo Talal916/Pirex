@@ -20,7 +20,8 @@ public class ProcessedBook {
 	//Constructor receives a gutenberg text file as well as the opus number. 
 	//It then calls readBook() to set the author, title, and the text.
 	
-	public ProcessedBook(File file, int num) {
+	public ProcessedBook(File file, int num) 
+	{
 		opus = new LinkedList<StringBuilder>();
 		opusNum = num;
 		book = file;
