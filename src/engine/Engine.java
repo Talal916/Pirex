@@ -54,10 +54,11 @@ public class Engine {
 		return index.get(s);
 	}
 
-	public static ArrayList<String> getquery() {
+	public static ArrayList<String> getQuery() {
 		return query;
 	}
 	
+	//Flags if queries were found
 	public boolean queryFound(String s) {
 		return index.containsKey(s);
 	}
