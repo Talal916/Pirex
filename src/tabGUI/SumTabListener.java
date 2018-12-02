@@ -3,6 +3,7 @@ package tabGUI;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -44,6 +45,8 @@ public class SumTabListener implements ChangeListener
 		//Listens to the load tab and activates once a document is loaded into pirex.
 		//add info to a list, pass it into display info
 		//DisplayInfo(ListOfInfo);
-		
+		JTabbedPane sourceTab = (JTabbedPane) e.getSource();
+		int index = sourceTab.getSelectedIndex();
+		//if (index = )
 	}
 }
