@@ -8,7 +8,7 @@ public class MenuBar {
 
 	JMenuBar menuBar;
 	JMenu fileMenu, optionsMenu, helpMenu;
-	JMenuItem item, aboutItem;
+	JMenuItem item, aboutItem, indexItem;
 	JFrame frame;
 
 	/**
@@ -55,11 +55,12 @@ public class MenuBar {
 		
 		// Help menu
 		helpMenu = new JMenu("Help");
+		indexItem = new JMenuItem("Index");
 		aboutItem = new JMenuItem("About");
 		
 		//Add Index item to the help menu
-		aboutItem.addActionListener(new IndexDialog());
-		helpMenu.add(item);
+		indexItem.addActionListener(new IndexDialog());
+		helpMenu.add(indexItem);
 		menuBar.add(helpMenu);
 		
 		// About dialog window
