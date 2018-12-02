@@ -8,7 +8,7 @@ public class MenuBar {
 
 	JMenuBar menuBar;
 	JMenu fileMenu, optionsMenu, helpMenu;
-	JMenuItem item, aboutItem;
+	JMenuItem item, aboutItem, indexItem;
 	JFrame frame;
 
 	/**
@@ -55,11 +55,12 @@ public class MenuBar {
 		
 		// Help menu
 		helpMenu = new JMenu("Help");
+		indexItem = new JMenuItem("Index");
 		aboutItem = new JMenuItem("About");
 		
 		//Add Index item to the help menu
-		item = new JMenuItem("Index");
-		helpMenu.add(item);
+		indexItem.addActionListener(new IndexDialog("res/pirex.png"));
+		helpMenu.add(indexItem);
 		menuBar.add(helpMenu);
 		
 		// About dialog window
@@ -81,6 +82,28 @@ public class MenuBar {
         }
     }
 
+    class IndexDialog implements ActionListener{
+    	ImageIcon icon;
+    	String title = "Index",
+    			description = "Load Query: Load previously saved search query\nSave Query: Save current search query\n";
+    			
+    					public IndexDialog(String filepath) {
+    						icon = new ImageIcon(filepath);
+    	    	}
+    	    	
+    			public void actionPerformed(ActionEvent e) {
+    				// Create dialog box
+    	    		JOptionPane.showMessageDialog(
+    	    				null, 
+    	    				description, 
+    	    				title, 
+    	    				JOptionPane.INFORMATION_MESSAGE,
+    	    				icon
+    	    				);
+    			}
+    			
+    }
+    
     class AboutDialog implements ActionListener {
 
     	ImageIcon icon;

@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
+import Menu.MenuBar;
+
 import java.awt.Container;
 
 import tabGUI.LoadTab;
@@ -45,6 +48,9 @@ public class guiMain {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		// Sets menu bar for macOS
+		System.setProperty("apple.laf.useScreenMenuBar", "true");
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1983, 887);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,6 +75,9 @@ public class guiMain {
 		
 		JPanel sumDocs = new JPanel();
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
+		
+		// Add menu bar
+		new MenuBar(frame);
 	}
 
 }
