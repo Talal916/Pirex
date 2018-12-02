@@ -20,7 +20,12 @@ public class ProcessorListener implements ActionListener {
 	public ProcessorListener(LoadTab tab) {
 		ProcessorListener.loadTab = tab;
 	}
-	  
+	
+	public LinkedHashMap <Integer, ProcessedBook> getBooks()
+	{
+		return books;
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals(loadTab.getBROWSE())) {

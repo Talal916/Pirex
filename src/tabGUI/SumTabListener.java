@@ -1,5 +1,8 @@
 package tabGUI;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -8,6 +11,7 @@ import textProcessor.*;
 public class SumTabListener implements ChangeListener
 {
 	//private SumTab sum;
+	private ProcessorListener process;
 	//Doesn't really need a listener since the data we need to display is mostly stored in ProcessorListener
 	//in the LinkedHashMap labelled books. As such we can simply call the hashmap and get the information from each entry in the map
 	
@@ -25,23 +29,16 @@ public class SumTabListener implements ChangeListener
 		//print out info
 		//'opus number': 'author' 'title' 'documents' 
 		//'location'
-		//LinkedHashMap <Integer, ProcessedBook> map = get map from processorListener
-		/*for (Map.Entry <Integer, ProcessedBook> entry : map.entrySet())
-		 * {
-		 * int opusNum = entry.getKey();		
-		 * ProcessedBook book = entry.getValue();
-		 * System.out.printf("Opus %i: %s  %s  %i documents\n\t\t%s", opusNum, book.getAuthor(), book.getTitle(), numDocs, path);
-		 * 
-		 * 
-		 * }
-		 */
+		LinkedHashMap <Integer, ProcessedBook> map = process.getBooks();
+		for (Map.Entry <Integer, ProcessedBook> entry : map.entrySet())
+		{
+			int opusNum = entry.getKey();		
+			ProcessedBook book = entry.getValue();
+			System.out.printf("Opus %i: %s  %s  %i documents\n\t\t%s", opusNum, book.getAuthor(), book.getTitle());
+		}
 		
-	/*
-	 * 
-	 * System.out.printf("Total index terms: %i", indexTerms);
-	 * System.out.printf("Total postings: %i", postings);
-	 * 
-	 
+	/* System.out.printf("Total index terms: %i", indexTerms);
+	 * System.out.printf("Total postings: %i", postings); 
 	 */
 	}
 

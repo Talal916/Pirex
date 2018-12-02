@@ -18,6 +18,7 @@ public class summTab extends JPanel{
         frame.pack();
         frame.setVisible(true);
 	}
+	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
             public void run() {
