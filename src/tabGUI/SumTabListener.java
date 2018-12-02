@@ -33,7 +33,7 @@ public class SumTabListener implements ChangeListener
 		for (Map.Entry <Integer, ProcessedBook> entry : map.entrySet())
 		{
 			int opusNum = entry.getKey();		
-			ProcessedBook book = entry.getValue();
+			ProcessedBook book = entry.getValue(); 
 			System.out.printf("Opus %i: %s  %s  %i documents\n\t\t%s", opusNum, book.getAuthor(), book.getTitle());
 		}
 		
