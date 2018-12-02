@@ -1,7 +1,9 @@
 package gui;
 
 import java.awt.EventQueue;
+import java.net.URL;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
@@ -58,6 +60,11 @@ public class guiMain {
 		frame.setBounds(100, 100, 1983, 887);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = frame.getContentPane();
+		
+		// Set icon
+		ImageIcon icon = new ImageIcon("res/pirex.PNG");
+		frame.setIconImage(icon.getImage());
+		
 		
 		/*JPanel panel = new JPanel();
 		panel.setBounds(51, 16, 1804, 713);
