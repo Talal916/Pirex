@@ -58,7 +58,7 @@ public class MenuBar {
 		aboutItem = new JMenuItem("About");
 		
 		//Add Index item to the help menu
-		item = new JMenuItem("Index");
+		aboutItem.addActionListener(new IndexDialog());
 		helpMenu.add(item);
 		menuBar.add(helpMenu);
 		
@@ -81,6 +81,26 @@ public class MenuBar {
         }
     }
 
+    class IndexDialog implements ActionListener{
+    	String title = "Index",
+    			description = "Load Query: Load previously saved search query\nSave Query: Save current search query\n";
+    			
+    					public IndexDialog() {
+    				
+    	    	}
+    	    	
+    			public void actionPerformed(ActionEvent e) {
+    				// Create dialog box
+    	    		JOptionPane.showMessageDialog(
+    	    				null, 
+    	    				description, 
+    	    				title, 
+    	    				JOptionPane.INFORMATION_MESSAGE
+    	    				);
+    			}
+    			
+    }
+    
     class AboutDialog implements ActionListener {
 
     	ImageIcon icon;
