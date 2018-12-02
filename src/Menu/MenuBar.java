@@ -45,14 +45,13 @@ public class MenuBar {
 		helpMenu = new JMenu("Help");
 		aboutItem = new JMenuItem("About");
 		
-		// About window
-		
-		item.addActionListener(new AboutDialog());
+		// About dialog window
+		aboutItem.addActionListener(new AboutDialog("res/transparentPirex.png"));
         // Add to menu bar
 		helpMenu.add(aboutItem);
 		menuBar.add(helpMenu);
 
-		// The menu bar
+		// Add menu bar to frame
 		frame.setJMenuBar(menuBar);
 	}
 }
@@ -66,13 +65,22 @@ public class MenuBar {
 
     class AboutDialog implements ActionListener {
 
+    	ImageIcon icon;
+    	String title = "About Pirex",
+    			description = "Pirex Information Retrieval System ® 2018";
+    	
+    	public AboutDialog(String filepath) {
+			icon = new ImageIcon(filepath);
+    	}
+    	
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			// Create dialog box
     		JOptionPane.showMessageDialog(
     				null, 
-    				"About Pirex", 
-    				"Pirex", 
-    				JOptionPane.INFORMATION_MESSAGE
+    				description, 
+    				title, 
+    				JOptionPane.INFORMATION_MESSAGE,
+    				icon
     				);
 		}
     }
