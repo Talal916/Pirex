@@ -54,7 +54,7 @@ public class Engine {
 		return index.get(s);
 	}
 
-	public static ArrayList<String> getquery() {
+	public static ArrayList<String> getQuery() {
 		return query;
 	}
 	

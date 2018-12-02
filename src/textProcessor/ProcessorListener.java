@@ -6,17 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-//import SerializationMethods;
 
 import tabGUI.LoadTab;
 import indexer.Indexer;
 
 public class ProcessorListener implements ActionListener {
 	private static LoadTab loadTab;
-	private Indexer index;
-	private static ProcessedBook book;
 	private static int num = 0;
+	private static ProcessedBook book;
 	private LinkedHashMap<Integer, ProcessedBook> books = new LinkedHashMap<Integer, ProcessedBook>();
+	private Indexer index;
 
 	public ProcessorListener(LoadTab tab) {
 		ProcessorListener.loadTab = tab;
@@ -24,15 +23,12 @@ public class ProcessorListener implements ActionListener {
 	  
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
-	    //LinkedHashMap<String, GutenbergBook> map = this.deserialize();
-		//books = SerializationMethods.deserializeBooks();
 		if (e.getActionCommand().equals(loadTab.getBROWSE())) {
 			int browseVal = loadTab.getFC().showOpenDialog(loadTab.getFrame());
 			if (browseVal == JFileChooser.APPROVE_OPTION) {
 				if (books != null) num = books.size();
 	        book = new ProcessedBook(loadTab.getFC().getSelectedFile(), num);
-	        //JOptionPane.showMessageDialog(loadTab.getFrame(), "Loaded the document");
+	        JOptionPane.showMessageDialog(loadTab.getFrame(), "Loaded the document");
 	        loadTab.getTextFileFieldL().setText((loadTab.getFC().getSelectedFile().getAbsolutePath()));
 	        loadTab.getTextTitleFieldL().setText((book.getTitle()));
 	        loadTab.getTextAuthorFieldL().setText((book.getAuthor()));
@@ -45,22 +41,16 @@ public class ProcessorListener implements ActionListener {
 	    	if (books == null) {
 	    		books = new LinkedHashMap<Integer, ProcessedBook>();
 	    	}
-	      
-	    	//if(books.containsKey(book.getTitle()))
 	    	if (books.containsKey(book.getOpusNum())) {
 	    		JOptionPane.showMessageDialog(loadTab.getFrame(), "This opus has been processed already.", "Process Error", JOptionPane.WARNING_MESSAGE);
 	    		loadTab.getProcessTextAreaL().setText("");
-	    	}
-	    	else {
+	    	} else {
 	        books.put(book.getOpusNum(), book);
-	        //SerializationMethods.serializeBooks(books);
-	        if (index == null) {
-	      	  	index = new Indexer();
-	        }
+	        	if (index == null) {
+	      	  		index = new Indexer();
+	        	}
 	        index.addTerms(book);
-	        //SerializationMethods.serializeIndexer(index);
-	        System.out.print(index.toString());
-	        //System.out.printf("Serialized data is saved"); 
+	        System.out.print(index);
 	        loadTab.getTextFileFieldL().setText("");
 	        loadTab.getTextTitleFieldL().setText("");
 	        loadTab.getTextAuthorFieldL().setText("");
