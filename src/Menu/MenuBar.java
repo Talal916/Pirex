@@ -59,7 +59,7 @@ public class MenuBar {
 		aboutItem = new JMenuItem("About");
 		
 		//Add Index item to the help menu
-		indexItem.addActionListener(new IndexDialog());
+		indexItem.addActionListener(new IndexDialog("res/pirex.png"));
 		helpMenu.add(indexItem);
 		menuBar.add(helpMenu);
 		
@@ -83,11 +83,12 @@ public class MenuBar {
     }
 
     class IndexDialog implements ActionListener{
+    	ImageIcon icon;
     	String title = "Index",
     			description = "Load Query: Load previously saved search query\nSave Query: Save current search query\n";
     			
-    					public IndexDialog() {
-    				
+    					public IndexDialog(String filepath) {
+    						icon = new ImageIcon(filepath);
     	    	}
     	    	
     			public void actionPerformed(ActionEvent e) {
@@ -96,7 +97,8 @@ public class MenuBar {
     	    				null, 
     	    				description, 
     	    				title, 
-    	    				JOptionPane.INFORMATION_MESSAGE
+    	    				JOptionPane.INFORMATION_MESSAGE,
+    	    				icon
     	    				);
     			}
     			
