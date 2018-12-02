@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.EventQueue;
-import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
