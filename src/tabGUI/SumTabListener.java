@@ -23,7 +23,7 @@ public class SumTabListener implements ChangeListener
 	private void DisplayInfo (/*list containing info from load*/)
 	{
 		//print out info
-		//'opus number': 'author' 'title' 'documents'
+		//'opus number': 'author' 'title' 'documents' 
 		//'location'
 		//LinkedHashMap <Integer, ProcessedBook> map = get map from processorListener
 		/*for (Map.Entry <Integer, ProcessedBook> entry : map.entrySet())
