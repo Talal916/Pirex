@@ -7,7 +7,9 @@ public class SumTabListener implements ChangeListener
 {
 	//private SumTab sum;
 	
-	
+	/**
+	 * Called by the summary tab to be invoked whenever the load tab is used to load in a document
+	 */
 	public SumTabListener (/*SumTab sum*/) 
 	{
 		//this.sum = sum;
