@@ -30,12 +30,13 @@ public class MenuBar {
 		item = new JMenuItem("Load Query");
 		fileMenu.add(item);
 		menuBar.add(fileMenu);
-				
+						
 		//Add save query to the file menu
 		item = new JMenuItem("Save Query");
 		fileMenu.add(item);
 		menuBar.add(fileMenu);
 
+		//Add exit to the file menu
 		item = new JMenuItem("Exit");
 		fileMenu.add(item);
 		menuBar.add(fileMenu);
