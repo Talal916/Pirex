@@ -10,21 +10,17 @@ import textProcessor.*;
 
 public class SumTabListener implements ChangeListener
 {
-	//private SumTab sum;
+	
 	private ProcessorListener process;
 	//Doesn't really need a listener since the data we need to display is mostly stored in ProcessorListener
 	//in the LinkedHashMap labelled books. As such we can simply call the hashmap and get the information from each entry in the map
 	
-	
-	/**
-	 * Called by the summary tab to be invoked whenever the load tab is used to load in a document
-	 */
 	public SumTabListener (/*SumTab sum*/) 
 	{
 		//this.sum = sum;
 	}
 	
-	private void DisplayInfo (/*list containing info from load*/)
+	private void DisplayInfo()
 	{
 		//print out info
 		//'opus number': 'author' 'title' 'documents' 
@@ -34,7 +30,7 @@ public class SumTabListener implements ChangeListener
 		{
 			int opusNum = entry.getKey();		
 			ProcessedBook book = entry.getValue(); 
-			System.out.printf("Opus %i: %s  %s  %i documents\n\t\t%s", opusNum, book.getAuthor(), book.getTitle());
+			System.out.printf("Opus %i: %s  %s  %i documents\n\n", opusNum, book.getAuthor(), book.getTitle());
 		}
 		
 	/* System.out.printf("Total index terms: %i", indexTerms);
