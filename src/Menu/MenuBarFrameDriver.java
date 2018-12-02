@@ -2,7 +2,7 @@ package Menu;
 
 /**
  * Temp testing class for MenuBar
- *
+ * 
  */
 public class MenuBarFrameDriver
 {
@@ -12,6 +12,9 @@ public class MenuBarFrameDriver
      *
      * @param args   The command line arguments
      */
+
+	
+//	Old testing main
 //    public static void main(String[] args)
 //    {
 //        MenuBar   f;
