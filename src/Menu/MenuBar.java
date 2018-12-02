@@ -44,7 +44,8 @@ public class MenuBar {
 		
 		// The Options menu
 		optionsMenu = new JMenu("Options");
-
+		
+		//Add Sources to the options menu
 		item = new JMenuItem("Sources");
 		optionsMenu.add(item);
 		menuBar.add(optionsMenu);
