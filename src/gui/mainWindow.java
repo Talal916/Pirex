@@ -124,6 +124,7 @@ public class mainWindow {
 		
 		TextArea textArea_1 = new TextArea();
 		textArea_1.setBounds(0, 0, 1458, 733);
+		textArea_1.setEditable(false);
 		panel_2.add(textArea_1);
 		
 		// Add menu bar
