@@ -127,6 +127,6 @@ public class mainWindow {
 		panel_2.add(textArea_1);
 		
 		// Add menu bar
-		MenuBar menubar = new MenuBar(frame);
+		new MenuBar(frame);
 	}
 }
