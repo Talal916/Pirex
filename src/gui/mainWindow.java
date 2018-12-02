@@ -19,6 +19,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import Menu.MenuBar;
+
 public class mainWindow {
 
 	private JFrame frame;
@@ -123,5 +125,8 @@ public class mainWindow {
 		TextArea textArea_1 = new TextArea();
 		textArea_1.setBounds(0, 0, 1458, 733);
 		panel_2.add(textArea_1);
+		
+		// Add menu bar
+		MenuBar menubar = new MenuBar(frame);
 	}
 }
