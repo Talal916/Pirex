@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
+
+import Menu.MenuBar;
+
 import java.awt.Container;
 
 import tabGUI.LoadTab;
@@ -69,6 +72,9 @@ public class guiMain {
 		
 		JPanel sumDocs = new JPanel();
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
+		
+		// Add menu bar
+		new MenuBar(frame);
 	}
 
 }
