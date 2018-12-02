@@ -24,6 +24,17 @@ public class MenuBar {
 
 		// The File menu
 		fileMenu = new JMenu("File");
+		
+		
+		//Add load query to the file menu
+		item = new JMenuItem("Load Query");
+		fileMenu.add(item);
+		menuBar.add(fileMenu);
+				
+		//Add save query to the file menu
+		item = new JMenuItem("Save Query");
+		fileMenu.add(item);
+		menuBar.add(fileMenu);
 
 		item = new JMenuItem("Exit");
 		fileMenu.add(item);
@@ -45,11 +56,17 @@ public class MenuBar {
 		helpMenu = new JMenu("Help");
 		aboutItem = new JMenuItem("About");
 		
+		//Add Index item to the help menu
+		item = new JMenuItem("Index");
+		helpMenu.add(item);
+		menuBar.add(helpMenu);
+		
 		// About dialog window
 		aboutItem.addActionListener(new AboutDialog("res/transparentPirex.png"));
         // Add to menu bar
 		helpMenu.add(aboutItem);
 		menuBar.add(helpMenu);
+		
 
 		// Add menu bar to frame
 		frame.setJMenuBar(menuBar);
