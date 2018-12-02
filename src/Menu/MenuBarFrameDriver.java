@@ -1,7 +1,7 @@
 package Menu;
 
 /**
- * An example that uses a menu bar
+ * Temp testing class for MenuBar
  *
  */
 public class MenuBarFrameDriver
@@ -12,14 +12,14 @@ public class MenuBarFrameDriver
      *
      * @param args   The command line arguments
      */
-    public static void main(String[] args)
-    {
-        MenuBar   f;
-
-        f = new MenuBar();
-        f.setSize(400,200);
-        f.setVisible(true);
-
-        
-    }
+//    public static void main(String[] args)
+//    {
+//        MenuBar   f;
+//
+//        f = new MenuBar();
+//        f.setSize(400,200);
+//        f.setVisible(true);
+//
+//        
+//    }
 }

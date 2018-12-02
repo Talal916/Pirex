@@ -4,19 +4,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //options menu item with Documents and sources buttons
-public class MenuBar extends JFrame{
+public class MenuBar {
 
 	
 	JMenuBar menuBar;
-	JMenu fileMenu, optionsMenu;
-	JMenuItem item;
+	JMenu fileMenu, optionsMenu, helpMenu;
+	JMenuItem item, aboutItem;
+	JFrame frame;
 
 	/**
 	 * Default constructor
 	 */
-	public MenuBar () {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public MenuBar (JFrame frame) {
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+		this.frame = frame;
+		
 		menuBar = new JMenuBar();
 
 		// The File menu
@@ -37,9 +40,20 @@ public class MenuBar extends JFrame{
 		item = new JMenuItem("Documents");
 		optionsMenu.add(item);
 		menuBar.add(optionsMenu);
+		
+		// Help menu
+		helpMenu = new JMenu("Help");
+		aboutItem = new JMenuItem("About");
+		
+		// About window
+		
+		item.addActionListener(new AboutDialog());
+        // Add to menu bar
+		helpMenu.add(aboutItem);
+		menuBar.add(helpMenu);
 
 		// The menu bar
-		setJMenuBar(menuBar);
+		frame.setJMenuBar(menuBar);
 	}
 }
     class exitApp implements ActionListener
@@ -48,4 +62,17 @@ public class MenuBar extends JFrame{
         {
             System.exit(0);
         }
+    }
+
+    class AboutDialog implements ActionListener {
+
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+    		JOptionPane.showMessageDialog(
+    				null, 
+    				"About Pirex", 
+    				"Pirex", 
+    				JOptionPane.INFORMATION_MESSAGE
+    				);
+		}
     }
