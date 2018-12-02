@@ -20,6 +20,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import Menu.MenuBar;
+import tabGUI.LoadTab;
 
 public class mainWindow {
 
@@ -115,9 +116,13 @@ public class mainWindow {
 		panel_4.add(textArea);
 		panel.setLayout(gl_panel);
 		
-		JPanel panel_1 = new JPanel();
+		// Load Documents tab
+		LoadTab loadTab = new LoadTab();
+		JPanel panel_1 = loadTab.loadPanelTab();
 		tabbedPane.addTab("Load Documents", null, panel_1, null);
 		
+		
+		// Summarize Documents tab
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Summarize Documents", null, panel_2, null);
 		panel_2.setLayout(null);
@@ -126,6 +131,7 @@ public class mainWindow {
 		textArea_1.setBounds(0, 0, 1458, 733);
 		textArea_1.setEditable(false);
 		panel_2.add(textArea_1);
+		
 		
 		// Add menu bar
 		new MenuBar(frame);
