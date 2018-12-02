@@ -18,6 +18,7 @@ import java.awt.GridLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JMenuBar;
 
 public class mainWindow {
 
@@ -52,7 +53,6 @@ public class mainWindow {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Talal\\School\\CSC 131\\Group Project\\Sprint 1\\transparentX.png"));
 		frame.setBounds(100, 100, 1613, 1060);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -123,5 +123,9 @@ public class mainWindow {
 		TextArea textArea_1 = new TextArea();
 		textArea_1.setBounds(0, 0, 1458, 733);
 		panel_2.add(textArea_1);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBounds(0, 0, 139, 31);
+		frame.getContentPane().add(menuBar);
 	}
 }
