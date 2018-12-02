@@ -20,7 +20,7 @@ public class SumTabListener implements ChangeListener
 		//'location'
 		
 	/*
-	 * for each item in the list
+	 * for each item in the list 
 	 * System.out.printf("Opus %s: %s  %s  %i documents\n\t\t%s", opusNum, author, title, numDocs, path);
 	 * System.out.printf("Total index terms: %i", indexTerms);
 	 * System.out.printf("Total postings: %i", postings);
