@@ -9,6 +9,8 @@ import javax.swing.JTextArea;
 public class SumTab {
 	private JTextArea textAreas;
 	
+	
+	
 	public JTextArea getTextAreas() {
 		return textAreas;
 	}

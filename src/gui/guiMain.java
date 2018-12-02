@@ -11,6 +11,7 @@ import java.awt.Container;
 
 import tabGUI.LoadTab;
 import tabGUI.SearchTab;
+import tabGUI.SumTab;
 
 import javax.swing.JPanel;
 
@@ -19,6 +20,7 @@ public class guiMain {
 	private JFrame frame;
 	private LoadTab loadtab = new LoadTab();
 	private SearchTab searchTab = new SearchTab();
+	private SumTab sumTab = new SumTab();
 	private Container contentPane;
 
 	/**
@@ -73,7 +75,7 @@ public class guiMain {
 		tabbedPane.addTab("Load Documents", null, loadDocs, null);
 		
 		
-		JPanel sumDocs = new JPanel();
+		JPanel sumDocs = sumTab.sumPanelTab();
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
 		
 		// Add menu bar
