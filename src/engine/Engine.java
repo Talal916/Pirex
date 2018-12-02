@@ -58,6 +58,7 @@ public class Engine {
 		return query;
 	}
 	
+	//Flags if queries were found
 	public boolean queryFound(String s) {
 		return index.containsKey(s);
 	}
