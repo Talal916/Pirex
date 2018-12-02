@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 //options menu item with Documents and sources buttons
 public class MenuBar {
 
-	
 	JMenuBar menuBar;
 	JMenu fileMenu, optionsMenu, helpMenu;
 	JMenuItem item, aboutItem;
