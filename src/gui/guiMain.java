@@ -7,6 +7,7 @@ import javax.swing.JTabbedPane;
 import java.awt.Container;
 
 import tabGUI.LoadTab;
+import tabGUI.SearchTab;
 
 import javax.swing.JPanel;
 
@@ -14,6 +15,7 @@ public class guiMain {
 
 	private JFrame frame;
 	private LoadTab loadtab = new LoadTab();
+	private SearchTab searchTab = new SearchTab();
 	private Container contentPane;
 
 	/**
@@ -57,7 +59,7 @@ public class guiMain {
 		tabbedPane.setBounds(15, 16, 1608, 681);
 		contentPane.add(tabbedPane);
 		
-		JPanel searchDocs = new JPanel();
+		JPanel searchDocs = searchTab.searchPanelTab();
 		tabbedPane.addTab("Search for Documents", null, searchDocs, null);
 		//searchDocs.setLayout(null);
 		
