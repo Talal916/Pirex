@@ -55,6 +55,8 @@ public class guiMain {
 		// Sets menu bar for macOS
 		System.setProperty("apple.laf.useScreenMenuBar", "true");
 		
+		
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1983, 887);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
