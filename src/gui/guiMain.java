@@ -12,6 +12,7 @@ import java.awt.Container;
 import tabGUI.LoadTab;
 import tabGUI.SearchTab;
 import tabGUI.SumTab;
+import indexer.SumListener;
 
 import javax.swing.JPanel;
 
@@ -78,6 +79,7 @@ public class guiMain {
 		JPanel sumDocs = sumTab.sumPanelTab();
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
 		
+		tabbedPane.addChangeListener(new SumListener(sumTab));
 		// Add menu bar
 		new MenuBar(frame);
 	}
