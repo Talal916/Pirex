@@ -108,7 +108,7 @@ public class MenuBar {
 
     	ImageIcon icon;
     	String title = "About Pirex",
-    			description = "Pirex Information Retrieval System Â® 2018\nGroup 10 Section 5";
+    			description = "Pirex Information Retrieval System ® 2018\nGroup 10 Section 5";
     	
     	public AboutDialog(String filepath) {
 			icon = new ImageIcon(filepath);
