@@ -47,7 +47,7 @@ public class guiMain {
 	public guiMain() {
 		initialize();
 	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -86,5 +86,8 @@ public class guiMain {
 		// Add menu bar
 		new MenuBar(frmPirexDocumentRetrieval);
 	}
+	
+	
+	
 
 }

@@ -14,7 +14,10 @@ public class MenuBar {
 	/**
 	 * Default constructor
 	 */
-	public MenuBar (JFrame frame) {this.frame = frame;
+	
+	public MenuBar (JFrame frame) {
+		
+		this.frame = frame;
 		
 		menuBar = new JMenuBar();
 
