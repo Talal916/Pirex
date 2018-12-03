@@ -1,10 +1,11 @@
 package gui;
 
 import java.awt.EventQueue;
-import java.net.URL;
+import java.awt.Frame;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
 import Menu.MenuBar;
@@ -17,10 +18,17 @@ import tabGUI.SumTab;
 import indexer.SumListener;
 
 import javax.swing.JPanel;
+import java.awt.event.WindowEvent;  
+import java.awt.event.WindowListener;  
+import java.awt.event.WindowAdapter;
 
-public class guiMain {
+public class guiMain extends Frame implements WindowListener{
 
-	private JFrame frame;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JFrame frmPirexDocumentRetrieval;
 	private LoadTab loadtab = new LoadTab();
 	private SearchTab searchTab = new SearchTab();
 	private SumTab sumTab = new SumTab();
@@ -34,7 +42,7 @@ public class guiMain {
 			public void run() {
 				try {
 					guiMain window = new guiMain();
-					window.frame.setVisible(true);
+					window.frmPirexDocumentRetrieval.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,7 +56,7 @@ public class guiMain {
 	public guiMain() {
 		initialize();
 	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -56,20 +64,32 @@ public class guiMain {
 		// Sets menu bar for macOS
 		System.setProperty("apple.laf.useScreenMenuBar", "true");
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1983, 887);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		contentPane = frame.getContentPane();
+		
+		
+		frmPirexDocumentRetrieval = new JFrame();
+		frmPirexDocumentRetrieval.setTitle("Pirex"); //set window title
+		frmPirexDocumentRetrieval.setBounds(100, 100, 1983, 887);
+		frmPirexDocumentRetrieval.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		contentPane = frmPirexDocumentRetrieval.getContentPane();
+		
+		//close handling
+		WindowAdapter windowCloseHandler = new WindowAdapter() {
+			public void windowClosing(WindowEvent e)
+			{
+				 String exitOptions[] = {"Yes","No"};
+			     int exitAnswer = JOptionPane.showOptionDialog(null,"Are you sure you want to exit?","Pirex",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,exitOptions,exitOptions[1]);
+			     if(exitAnswer == JOptionPane.YES_OPTION)
+			     {
+			            System.exit(0);
+			     }
+			}
+			
+		};
 		
 		// Set icon
-		ImageIcon icon = new ImageIcon("res/pirex.PNG");
-		frame.setIconImage(icon.getImage());
-		
-		
-		/*JPanel panel = new JPanel();
-		panel.setBounds(51, 16, 1804, 713);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);*/
+		ImageIcon icon = new ImageIcon("res/transparentX.png");
+		frmPirexDocumentRetrieval.setIconImage(icon.getImage());
+
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(15, 16, 1608, 681);
@@ -88,7 +108,52 @@ public class guiMain {
 		
 		tabbedPane.addChangeListener(new SumListener(sumTab));
 		// Add menu bar
-		new MenuBar(frame);
+		new MenuBar(frmPirexDocumentRetrieval);
+		frmPirexDocumentRetrieval.addWindowListener(windowCloseHandler);
 	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
 
 }

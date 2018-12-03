@@ -14,9 +14,9 @@ public class MenuBar {
 	/**
 	 * Default constructor
 	 */
+	
 	public MenuBar (JFrame frame) {
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		this.frame = frame;
 		
 		menuBar = new JMenuBar();
@@ -39,7 +39,7 @@ public class MenuBar {
 		item = new JMenuItem("Exit");
 		fileMenu.add(item);
 		menuBar.add(fileMenu);
-        item.addActionListener(new exitApp());
+        item.addActionListener(new ExitApp());
 		
 		// The Options menu
 		optionsMenu = new JMenu("Options");
@@ -74,54 +74,70 @@ public class MenuBar {
 		frame.setJMenuBar(menuBar);
 	}
 }
-    class exitApp implements ActionListener
+
+class ExitApp implements ActionListener
+{
+	public void actionPerformed(ActionEvent e)
     {
-        public void actionPerformed(ActionEvent e)
-        {
-            System.exit(0);
-        }
-    }
-
-    class IndexDialog implements ActionListener{
-    	ImageIcon icon;
-    	String title = "Index",
-    			description = "Load Query: Load previously saved search query\nSave Query: Save current search query\n";
-    			
-    					public IndexDialog(String filepath) {
-    						icon = new ImageIcon(filepath);
-    	    	}
-    	    	
-    			public void actionPerformed(ActionEvent e) {
-    				// Create dialog box
-    	    		JOptionPane.showMessageDialog(
-    	    				null, 
-    	    				description, 
-    	    				title, 
-    	    				JOptionPane.INFORMATION_MESSAGE,
-    	    				icon
-    	    				);
-    			}
-    			
-    }
-    
-    class AboutDialog implements ActionListener {
-
-    	ImageIcon icon;
-    	String title = "About Pirex",
-    			description = "Pirex Information Retrieval System ® 2018\nGroup 10 Section 5";
-    	
-    	public AboutDialog(String filepath) {
-			icon = new ImageIcon(filepath);
-    	}
-    	
-		public void actionPerformed(ActionEvent e) {
-			// Create dialog box
-    		JOptionPane.showMessageDialog(
-    				null, 
-    				description, 
-    				title, 
-    				JOptionPane.INFORMATION_MESSAGE,
-    				icon
-    				);
+		// Confirm before exiting
+		String exitOptions[] = {"Yes","No"};
+		int exitAnswer = JOptionPane.showOptionDialog(
+				null,
+				"Are you sure you want to exit?",
+				"Pirex",
+				JOptionPane.DEFAULT_OPTION,
+				JOptionPane.WARNING_MESSAGE,
+				null,
+				exitOptions,
+				exitOptions[1]
+				);
+		if(exitAnswer == JOptionPane.YES_OPTION)
+		{
+			System.exit(0);
 		}
     }
+}
+
+class IndexDialog implements ActionListener{
+	ImageIcon icon;
+	String title = "Index",
+			description = "Load Query: Load previously saved search query\nSave Query: Save current search query\n";
+			
+					public IndexDialog(String filepath) {
+						icon = new ImageIcon(filepath);
+	    	}
+	    	
+			public void actionPerformed(ActionEvent e) {
+				// Create dialog box
+	    		JOptionPane.showMessageDialog(
+	    				null, 
+	    				description, 
+	    				title, 
+	    				JOptionPane.INFORMATION_MESSAGE,
+	    				icon
+	    				);
+			}
+			
+}
+
+class AboutDialog implements ActionListener {
+
+	ImageIcon icon;
+	String title = "About Pirex",
+			description = "Pirex Information Retrieval System � 2018\nGroup 10 Section 5";
+	
+	public AboutDialog(String filepath) {
+		icon = new ImageIcon(filepath);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		// Create dialog box
+		JOptionPane.showMessageDialog(
+				null, 
+				description, 
+				title, 
+				JOptionPane.INFORMATION_MESSAGE,
+				icon
+				);
+	}
+}
