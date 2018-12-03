@@ -62,7 +62,7 @@ public class guiMain {
 		contentPane = frame.getContentPane();
 		
 		// Set icon
-		ImageIcon icon = new ImageIcon("res/pirex.PNG");
+		ImageIcon icon = new ImageIcon("res/transparentX.png");
 		frame.setIconImage(icon.getImage());
 		
 		
