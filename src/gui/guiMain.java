@@ -15,10 +15,11 @@ import tabGUI.SearchTab;
 import tabGUI.SumTab;
 
 import javax.swing.JPanel;
+import java.awt.Window.Type;
 
 public class guiMain {
 
-	private JFrame frame;
+	private JFrame frmPirexDocumentRetrieval;
 	private LoadTab loadtab = new LoadTab();
 	private SearchTab searchTab = new SearchTab();
 	private SumTab sumTab = new SumTab();
@@ -32,7 +33,7 @@ public class guiMain {
 			public void run() {
 				try {
 					guiMain window = new guiMain();
-					window.frame.setVisible(true);
+					window.frmPirexDocumentRetrieval.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,20 +57,16 @@ public class guiMain {
 		
 		
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1983, 887);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		contentPane = frame.getContentPane();
+		frmPirexDocumentRetrieval = new JFrame();
+		frmPirexDocumentRetrieval.setTitle("Pirex"); //set window title
+		frmPirexDocumentRetrieval.setBounds(100, 100, 1983, 887);
+		frmPirexDocumentRetrieval.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		contentPane = frmPirexDocumentRetrieval.getContentPane();
 		
 		// Set icon
 		ImageIcon icon = new ImageIcon("res/transparentX.png");
-		frame.setIconImage(icon.getImage());
-		
-		
-		/*JPanel panel = new JPanel();
-		panel.setBounds(51, 16, 1804, 713);
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);*/
+		frmPirexDocumentRetrieval.setIconImage(icon.getImage());
+
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(15, 16, 1608, 681);
@@ -87,7 +84,7 @@ public class guiMain {
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
 		
 		// Add menu bar
-		new MenuBar(frame);
+		new MenuBar(frmPirexDocumentRetrieval);
 	}
 
 }
