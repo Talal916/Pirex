@@ -1,7 +1,7 @@
 package gui;
 
 import java.awt.EventQueue;
-import java.awt.*;
+import java.awt.Frame;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,7 +17,6 @@ import tabGUI.SearchTab;
 import tabGUI.SumTab;
 
 import javax.swing.JPanel;
-import java.awt.Window.Type;
 import java.awt.event.WindowEvent;  
 import java.awt.event.WindowListener;  
 import java.awt.event.WindowAdapter;
