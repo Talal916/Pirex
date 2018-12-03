@@ -20,11 +20,13 @@ public class Indexer {
 	public Indexer() {
 		index = new TreeMap<String, HashMap<Integer, ArrayList<Integer>>>();
 		indexCount = 0;
+		fileCount = 0;
+		posting = 0;
 	}
 	
 	public void addTerms(ProcessedBook book) {
-		fileCount = 0;
-		posting = 0;
+		/*fileCount = 0;
+		posting = 0;*/
 		ProcessedBook b = book;
 		int opusNum = b.getOpusNum();
 		LinkedList<StringBuilder> words = b.getOpus();
