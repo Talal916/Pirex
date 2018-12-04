@@ -15,6 +15,7 @@ import java.awt.Container;
 import tabGUI.LoadTab;
 import tabGUI.SearchTab;
 import tabGUI.SumTab;
+import indexer.SumListener;
 
 import javax.swing.JPanel;
 import java.awt.event.WindowEvent;  
@@ -105,6 +106,7 @@ public class guiMain extends Frame implements WindowListener{
 		JPanel sumDocs = sumTab.sumPanelTab();
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
 		
+		tabbedPane.addChangeListener(new SumListener(sumTab));
 		// Add menu bar
 		new MenuBar(frmPirexDocumentRetrieval);
 		frmPirexDocumentRetrieval.addWindowListener(windowCloseHandler);

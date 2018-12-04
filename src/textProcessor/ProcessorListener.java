@@ -15,7 +15,7 @@ public class ProcessorListener implements ActionListener {
 	private static int num = 0;
 	private static ProcessedBook book;
 	private LinkedHashMap<Integer, ProcessedBook> books = new LinkedHashMap<Integer, ProcessedBook>();
-	private Indexer index;
+	private Indexer index = new Indexer();
 
 	public ProcessorListener(LoadTab tab) {
 		ProcessorListener.loadTab = tab;
@@ -31,7 +31,7 @@ public class ProcessorListener implements ActionListener {
 		if (e.getActionCommand().equals(loadTab.getBROWSE())) {
 			int browseVal = loadTab.getFC().showOpenDialog(loadTab.getFrame());
 			if (browseVal == JFileChooser.APPROVE_OPTION) {
-				if (books != null) num = books.size();
+				if (books != null) num++;
 	        book = new ProcessedBook(loadTab.getFC().getSelectedFile(), num);
 	        JOptionPane.showMessageDialog(loadTab.getFrame(), "Loaded the document");
 	        loadTab.getTextFileFieldL().setText((loadTab.getFC().getSelectedFile().getAbsolutePath()));
@@ -43,17 +43,17 @@ public class ProcessorListener implements ActionListener {
 	    else if (e.getActionCommand().equals(loadTab.getPROCESS())) {
 	    	book.setAuthor(loadTab.getTextAuthorFieldL().getText()); 
 	    	book.setTitle(loadTab.getTextTitleFieldL().getText());
-	    	if (books == null) {
+	    	/*if (books == null) {
 	    		books = new LinkedHashMap<Integer, ProcessedBook>();
-	    	}
+	    	}*/
 	    	if (books.containsKey(book.getOpusNum())) {
 	    		JOptionPane.showMessageDialog(loadTab.getFrame(), "This opus has been processed already.", "Process Error", JOptionPane.WARNING_MESSAGE);
 	    		loadTab.getProcessTextAreaL().setText("");
 	    	} else {
 	        books.put(book.getOpusNum(), book);
-	        	if (index == null) {
+	        	/*if (index == null) {
 	      	  		index = new Indexer();
-	        	}
+	        	}*/
 	        index.addTerms(book);
 	        System.out.print(index);
 	        loadTab.getTextFileFieldL().setText("");
@@ -69,7 +69,7 @@ public class ProcessorListener implements ActionListener {
 	      					+"Total index terms: " + index.getIndexCount() + "\n"
 	      					+"Total postings: " + index.getPostings() + "\n");
 	        loadTab.getProcessButtonL().setEnabled(false);
-	        num++;
+	        //num++;
 	    	}
 	    }
 	}
