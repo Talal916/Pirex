@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -75,13 +76,21 @@ public class LoadTab
 		return PROCESS;
 	}
 
+	/**
+	 * Creates the interactable Load panel for loading files to Pirex
+	 * @return The load tab for Pirex
+	 */
 	public JPanel loadPanelTab() 
 	{
+		//Panel where the connect is added to; what the user sees
 		JPanel loadPanel = new JPanel();
+		
 		JLabel textFileLabelL = new JLabel("Text File: ", JLabel.RIGHT);
 		textFileFieldL = new JTextField(TEXTFILEFIELD_LVALUE); 
+		
 		JButton browseButtonL = new JButton(BROWSE);
 		browseButtonL.addActionListener(new ProcessorListener(this));
+		
 		JLabel textFileTypeL = new JLabel("Text File Type: ", JLabel.RIGHT);
 		String[] types = new String[1];
 		types[0] = "Project Gutenberg";
@@ -101,13 +110,26 @@ public class LoadTab
 		processTextAreaL = new JTextArea();
 		processTextAreaL.setEditable(false);
 		
-		JPanel jPanelTopMostLSection = new JPanel(); //North part of loadPanel
-		JPanel jPanelTopLSection = new JPanel(); //North part of jPanelTopMostLSection
-		JPanel jPanelTopLSectionProcessButton = new JPanel(); //Process in north jPanelTopMostLSection
-		JPanel jPanelTopLSectionDivision = new JPanel(); //Division in north jPanelTopMostLSection
-		JPanel jPanelTopNorthLSection = new JPanel(); //North part of jPanelTopLSection
-		JPanel jPanelTopCenterLSection = new JPanel(); //Center part of jPanelTopLSection
-		JPanel jPanelTopSouthLSection = new JPanel(); //South part of jPanelTopLSection
+		//North part of loadPanel
+		JPanel jPanelTopMostLSection = new JPanel(); 
+		
+		//North part of jPanelTopMostLSection
+		JPanel jPanelTopLSection = new JPanel(); 
+		
+		//Process in north jPanelTopMostLSection
+		JPanel jPanelTopLSectionProcessButton = new JPanel(); 
+		
+		//Division in north jPanelTopMostLSection; The line between info and process button
+		JPanel jPanelTopLSectionDivision = new JPanel(); 
+		
+		//North part of jPanelTopLSection; contains text file
+		JPanel jPanelTopNorthLSection = new JPanel(); 
+		
+		//Center part of jPanelTopLSection; contains text file type
+		JPanel jPanelTopCenterLSection = new JPanel(); 
+		
+		//South part of jPanelTopLSection; contains title & author
+		JPanel jPanelTopSouthLSection = new JPanel(); 
 		
 		loadPanel.setLayout(new BorderLayout());
 		loadPanel.setBorder(BorderFactory.createEmptyBorder(BORDER, BORDER, BORDER, BORDER));
@@ -122,18 +144,22 @@ public class LoadTab
 		jPanelTopLSectionDivision.setLayout(new BorderLayout());
 		jPanelTopLSectionDivision.setBorder(BorderFactory.createEmptyBorder(BORDER, 0, BORDER, 0));
 		
+		//Top of load tab set to be left aligned
 		jPanelTopNorthLSection.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
 		jPanelTopCenterLSection.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
 		jPanelTopSouthLSection.setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		JPanel jPanelCenterLSection = new JPanel(); //Center part of loadPanel
+		//center part of loadPanel
+		JPanel jPanelCenterLSection = new JPanel();
 		jPanelCenterLSection.setLayout(new BorderLayout());
 		
 		//Adding all the buttons to the Loading Tab
 		jPanelTopLSectionProcessButton.add(processButtonL, BorderLayout.WEST);
 		jPanelTopLSectionDivision.add(new JSeparator(JSeparator.HORIZONTAL), BorderLayout.CENTER);
+		
+//		Box jPanelTopNorthBox = Box.createHorizontalBox();
 		
 		jPanelTopNorthLSection.add(textFileLabelL);
 		jPanelTopNorthLSection.add(textFileFieldL);
@@ -165,4 +191,10 @@ public class LoadTab
 		
 		return loadPanel;
 	}
+	
+//	private Box createLoadBox()
+//	{
+//		Box loadBoxMain = 
+//		
+//	}
 }

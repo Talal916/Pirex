@@ -71,9 +71,11 @@ public class guiMain extends Frame implements WindowListener
 		
 		frmPirexDocumentRetrieval = new JFrame();
 		frmPirexDocumentRetrieval.setTitle("Pirex"); //set window title/
-		frmPirexDocumentRetrieval.setBounds(0, 0, 1000, 700);
-		frmPirexDocumentRetrieval.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmPirexDocumentRetrieval.setBounds(0, 0, 700, 600);
+		
+		//Minimum size the window can be without causing issues in layout of tabs
 		frmPirexDocumentRetrieval.setMinimumSize(new Dimension(700, 600));
+		frmPirexDocumentRetrieval.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		contentPane = frmPirexDocumentRetrieval.getContentPane();
 		
 		//close handling
@@ -110,6 +112,7 @@ public class guiMain extends Frame implements WindowListener
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
 		
 		tabbedPane.addChangeListener(new SumListener(sumTab));
+		
 		// Add menu bar
 		new MenuBar(frmPirexDocumentRetrieval);
 		frmPirexDocumentRetrieval.addWindowListener(windowCloseHandler);

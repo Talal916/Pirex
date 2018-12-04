@@ -10,7 +10,7 @@ import javax.swing.JTextArea;
 public class SumTab 
 {
 	private JTextArea textAreas;
-	
+	final int BORDER_SIZE = 10;
 	
 	
 	public JTextArea getTextAreas() 
@@ -22,11 +22,17 @@ public class SumTab
 	{
 		JPanel sumPanel = new JPanel();
 		
-		Box TBBorders = Box.createHorizontalBox();
-		TBBorders.add(Box.createRigidArea(new Dimension(Integer.MAX_VALUE, 10)));
+		//Borders for top and bottom
+		Box TBorder = Box.createHorizontalBox();
+		Box BBorder = Box.createHorizontalBox();
+		TBorder.add(Box.createRigidArea(new Dimension(Integer.MAX_VALUE, BORDER_SIZE)));
+		BBorder.add(Box.createRigidArea(new Dimension(Integer.MAX_VALUE, BORDER_SIZE)));
 		
-		Box LRBorders = Box.createVerticalBox();
-		LRBorders.add(Box.createRigidArea(new Dimension(10, Integer.MAX_VALUE)));
+		//Borders for side
+		Box LBorder = Box.createVerticalBox();
+		Box RBorder = Box.createVerticalBox();
+		LBorder.add(Box.createRigidArea(new Dimension(BORDER_SIZE, Integer.MAX_VALUE)));
+		RBorder.add(Box.createRigidArea(new Dimension(BORDER_SIZE, Integer.MAX_VALUE)));
 		
 		textAreas = new JTextArea();
 		textAreas.setEditable(false);
@@ -35,14 +41,12 @@ public class SumTab
 		
 		sumPanel.setLayout(new BorderLayout());
 		
-		//Borders for sum tab
-		//Currently only these two show up
-		sumPanel.add(TBBorders, BorderLayout.SOUTH);
-		sumPanel.add(LRBorders, BorderLayout.WEST);
+		//Add borders to sum tab
+		sumPanel.add(TBorder, BorderLayout.NORTH);
+		sumPanel.add(RBorder, BorderLayout.EAST);
+		sumPanel.add(BBorder, BorderLayout.SOUTH);
+		sumPanel.add(LBorder, BorderLayout.WEST);
 		
-		//Top and right don't show up in GUI
-		sumPanel.add(TBBorders, BorderLayout.NORTH);
-		sumPanel.add(LRBorders, BorderLayout.EAST);
 		sumPanel.add(scrollPanes, BorderLayout.CENTER);
 		
 		return sumPanel;
