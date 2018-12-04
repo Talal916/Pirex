@@ -11,6 +11,8 @@ public class SumTab
 {
 	private JTextArea textAreas;
 	final int BORDER_SIZE = 10;
+	final Dimension LR_BORDERS = new Dimension(BORDER_SIZE, Integer.MAX_VALUE);
+	final Dimension TB_BORDERS = new Dimension(Integer.MAX_VALUE, BORDER_SIZE);
 	
 	public JTextArea getTextAreas() 
 	{
@@ -24,14 +26,14 @@ public class SumTab
 		//Borders for top and bottom
 		Box TBorder = Box.createHorizontalBox();
 		Box BBorder = Box.createHorizontalBox();
-		TBorder.add(Box.createRigidArea(new Dimension(Integer.MAX_VALUE, BORDER_SIZE)));
-		BBorder.add(Box.createRigidArea(new Dimension(Integer.MAX_VALUE, BORDER_SIZE)));
+		TBorder.add(Box.createRigidArea(TB_BORDERS));
+		BBorder.add(Box.createRigidArea(TB_BORDERS));
 		
 		//Borders for side
 		Box LBorder = Box.createVerticalBox();
 		Box RBorder = Box.createVerticalBox();
-		LBorder.add(Box.createRigidArea(new Dimension(BORDER_SIZE, Integer.MAX_VALUE)));
-		RBorder.add(Box.createRigidArea(new Dimension(BORDER_SIZE, Integer.MAX_VALUE)));
+		LBorder.add(Box.createRigidArea(LR_BORDERS));
+		RBorder.add(Box.createRigidArea(LR_BORDERS));
 		
 		textAreas = new JTextArea();
 		textAreas.setEditable(false);

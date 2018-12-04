@@ -32,12 +32,13 @@ public class SearchTab
 	final int BORDER = 10;
 	final int TEXTFIELD_QVALUE = 45, LONGTEXTFIELD_VALUE = 40, SHORTTEXTFIELD_VALUE = 20;
 	final int VISIBLE_ROW_COUNT = 10, FIXED_CELL_HEIGHT = 15, FIXED_CELL_WIDTH = 100;
+	final int DISPLAY_COUNT_HEIGHT = 20, SHORT_FORM_HEIGHT = 153, LONG_FORM_MIN_HEIGHT = 200;
 	
 	final Dimension QUERY_SPACING = new Dimension(10, 0);
 	final Dimension V_SPACING = new Dimension (0, 5);
-	final Dimension DISPLAY_COUNT_SIZE = new Dimension(Integer.MAX_VALUE, 20);
-	final Dimension SHORT_FORM_SIZE = new Dimension(Integer.MAX_VALUE, 153);
-	final Dimension LONG_FORM_SIZE = new Dimension(Integer.MAX_VALUE, 200);
+	final Dimension DISPLAY_COUNT_SIZE = new Dimension(Integer.MAX_VALUE, DISPLAY_COUNT_HEIGHT);
+	final Dimension SHORT_FORM_SIZE = new Dimension(Integer.MAX_VALUE, SHORT_FORM_HEIGHT);
+	final Dimension LONG_FORM_SIZE = new Dimension(Integer.MAX_VALUE, LONG_FORM_MIN_HEIGHT);
 	
 	final String CLEAR = "Clear";
 	
