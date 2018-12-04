@@ -68,7 +68,7 @@ public class guiMain extends Frame implements WindowListener{
 		
 		frmPirexDocumentRetrieval = new JFrame();
 		frmPirexDocumentRetrieval.setTitle("Pirex"); //set window title/
-		frmPirexDocumentRetrieval.setBounds(100, 100, 1983, 887);
+		frmPirexDocumentRetrieval.setBounds(0, 0, 1983, 887);
 		frmPirexDocumentRetrieval.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		contentPane = frmPirexDocumentRetrieval.getContentPane();
 		

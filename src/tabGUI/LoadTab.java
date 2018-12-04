@@ -100,9 +100,9 @@ public class LoadTab {
 		jPanelTopLSectionProcessButton.setBorder(BorderFactory.createEmptyBorder(0, 0, BORDER, PROCESSBUTTON_VALUE));
 		jPanelTopLSectionDivision.setLayout(new BorderLayout());
 		jPanelTopLSectionDivision.setBorder(BorderFactory.createEmptyBorder(BORDER, 0, BORDER, 0));
-		jPanelTopNorthLSection.setLayout(new FlowLayout());
-		jPanelTopCenterLSection.setLayout(new FlowLayout());
-		jPanelTopSouthLSection.setLayout(new FlowLayout());
+		jPanelTopNorthLSection.setLayout(new FlowLayout(FlowLayout.LEFT));
+		jPanelTopCenterLSection.setLayout(new FlowLayout(FlowLayout.LEFT));
+		jPanelTopSouthLSection.setLayout(new FlowLayout(FlowLayout.LEFT));
 		JPanel jPanelCenterLSection = new JPanel(); //Center part of loadPanel
 		jPanelCenterLSection.setLayout(new BorderLayout());
 		//Adding all the buttons to the Loading Tab
