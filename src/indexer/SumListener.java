@@ -9,6 +9,7 @@ import javax.swing.event.ChangeListener;
 import indexer.Indexer;
 import tabGUI.SumTab;
 import textProcessor.ProcessedBook;
+import textProcessor.ProcessorListener;
 
 public class SumListener implements ChangeListener {
 	private SumTab sumtab;
@@ -23,8 +24,8 @@ public class SumListener implements ChangeListener {
 	    JTabbedPane sourceTabbedPane = (JTabbedPane) e.getSource();
 	    int index = sourceTabbedPane.getSelectedIndex();
 	    if (sourceTabbedPane.getTitleAt(index).equals("Summarize Documents")) {
-	    	HashMap<Integer, ProcessedBook> map = new HashMap<Integer, ProcessedBook>();
-	    	Indexer i = new Indexer();
+	    	HashMap<Integer, ProcessedBook> map = ProcessorListener.getBooks();
+	    	Indexer i = ProcessorListener.getIndex();
 	    	if (map != null && !map.isEmpty()) {
 	    		for (Integer key : map.keySet()) {
 	    			ProcessedBook book = map.get(key);

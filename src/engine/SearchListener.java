@@ -18,12 +18,13 @@ import javax.swing.event.ListSelectionListener;
 import indexer.Indexer;
 import textProcessor.ProcessedBook;
 import tabGUI.SearchTab;
+import textProcessor.ProcessorListener;
 
 public class SearchListener implements ActionListener, KeyListener, ListSelectionListener {
 	private static SearchTab searchTab;
 	private HashMap<Integer, ArrayList<Integer>> queryLocations;
 	private static Engine engine;
-	private Indexer index;
+	private static Indexer index = ProcessorListener.getIndex();
 	private static Map<String, StringBuilder> format = new LinkedHashMap<String, StringBuilder>();
 	private DefaultListModel<String> model;
 
@@ -38,8 +39,7 @@ public class SearchListener implements ActionListener, KeyListener, ListSelectio
 			format.clear();
 			int num = 0;
 			ProcessedBook result;
-			LinkedHashMap<Integer, ProcessedBook> map = new LinkedHashMap<Integer, ProcessedBook>();
-			index = new Indexer();
+			LinkedHashMap<Integer, ProcessedBook> map = ProcessorListener.getBooks();
 			engine = new Engine(index);
 			engine.addQuery(searchTab.getTextFieldQ().getText());
 			if(!engine.queryFound()) {
