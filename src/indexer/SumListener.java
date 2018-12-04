@@ -25,7 +25,7 @@ public class SumListener implements ChangeListener {
 	    if (sourceTabbedPane.getTitleAt(index).equals("Summarize Documents")) {
 	    	HashMap<Integer, ProcessedBook> map = new HashMap<Integer, ProcessedBook>();
 	    	Indexer i = new Indexer();
-	    	if (map != null) {
+	    	if (map != null && !map.isEmpty()) {
 	    		for (Integer key : map.keySet()) {
 	    			ProcessedBook book = map.get(key);
 	    			StringBuilder sb = new StringBuilder();
@@ -37,6 +37,10 @@ public class SumListener implements ChangeListener {
 	    		}
 	    		sumtab.getTextAreas().append("\nIndex terms: "+i.getIndexCount()+"\n");
 	    		sumtab.getTextAreas().append("Postings: "+i.getPostings());
+	    	}
+	    	else
+	    	{
+	    		sumtab.getTextAreas().append("No files currently saved in Pirex");
 	    	}
 	    }
 	}
