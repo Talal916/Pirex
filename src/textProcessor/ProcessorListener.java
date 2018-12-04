@@ -14,14 +14,18 @@ public class ProcessorListener implements ActionListener {
 	private static LoadTab loadTab;
 	private static int num = 0;
 	private static ProcessedBook book;
-	private LinkedHashMap<Integer, ProcessedBook> books = new LinkedHashMap<Integer, ProcessedBook>();
-	private Indexer index = new Indexer();
+	private static LinkedHashMap<Integer, ProcessedBook> books = new LinkedHashMap<Integer, ProcessedBook>();
+	private static Indexer index = new Indexer();
 
 	public ProcessorListener(LoadTab tab) {
 		ProcessorListener.loadTab = tab;
 	}
 	
-	public LinkedHashMap <Integer, ProcessedBook> getBooks()
+	public static Indexer getIndex() {
+		return index;
+	}
+	
+	public static LinkedHashMap <Integer, ProcessedBook> getBooks()
 	{
 		return books;
 	}
