@@ -11,6 +11,7 @@ import javax.swing.JTabbedPane;
 import Menu.MenuBar;
 
 import java.awt.Container;
+import java.awt.Dimension;
 
 import tabGUI.LoadTab;
 import tabGUI.SearchTab;
@@ -53,23 +54,24 @@ public class guiMain extends Frame implements WindowListener{
 	/**
 	 * Create the application.
 	 */
-	public guiMain() {
+	public guiMain() 
+	{
 		initialize();
 	}
 	
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize() 
+	{
 		// Sets menu bar for macOS
 		System.setProperty("apple.laf.useScreenMenuBar", "true");
 		
-		
-		
 		frmPirexDocumentRetrieval = new JFrame();
 		frmPirexDocumentRetrieval.setTitle("Pirex"); //set window title/
-		frmPirexDocumentRetrieval.setBounds(0, 0, 1983, 887);
+		frmPirexDocumentRetrieval.setBounds(0, 0, 1000, 700);
 		frmPirexDocumentRetrieval.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmPirexDocumentRetrieval.setMinimumSize(new Dimension(700, 600));
 		contentPane = frmPirexDocumentRetrieval.getContentPane();
 		
 		//close handling
@@ -83,7 +85,6 @@ public class guiMain extends Frame implements WindowListener{
 			            System.exit(0);
 			     }
 			}
-			
 		};
 		
 		// Set icon

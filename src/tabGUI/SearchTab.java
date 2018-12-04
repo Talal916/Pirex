@@ -73,14 +73,26 @@ public class SearchTab {
 		searchPanel.add(jPanelQ1,  BorderLayout.NORTH);
 		Box box = Box.createVerticalBox();
 		scrollPane  = new JScrollPane(docFound);
+		scrollPane.setMinimumSize(new Dimension(Integer.MAX_VALUE, 153));
+		scrollPane.setMaximumSize(new Dimension(Integer.MAX_VALUE, 153));
 		searchDocumentsFound = new TextArea();
 		box.add(scrollPane);
+		box.add(Box.createRigidArea(new Dimension(0, 5)));
+		displayCount.setMinimumSize(new Dimension(Integer.MAX_VALUE, 20));
+		displayCount.setMaximumSize(new Dimension(Integer.MAX_VALUE, 20));
 		box.add(displayCount);
+		box.add(Box.createRigidArea(new Dimension(0, 5)));
 		displayCount.setText("No Documents currently searched");
 		longFormOfDocument = new TextArea();
+		longFormOfDocument.setMinimumSize(new Dimension(Integer.MAX_VALUE, 200));
 		box.add(longFormOfDocument);
 		searchPanel.add(box, BorderLayout.CENTER);
 		searchPanel.setBorder(BorderFactory.createEmptyBorder(BORDER, BORDER, BORDER, BORDER));
 		return searchPanel;
 	}
+	
+//	public JPanel searchPanelTabNew()
+//	{
+//		
+//	}
 }

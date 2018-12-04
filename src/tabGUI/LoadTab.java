@@ -106,7 +106,7 @@ public class LoadTab {
 		JPanel jPanelCenterLSection = new JPanel(); //Center part of loadPanel
 		jPanelCenterLSection.setLayout(new BorderLayout());
 		//Adding all the buttons to the Loading Tab
-		jPanelTopLSectionProcessButton.add(processButtonL, BorderLayout.CENTER);
+		jPanelTopLSectionProcessButton.add(processButtonL, BorderLayout.WEST);
 		jPanelTopLSectionDivision.add(new JSeparator(JSeparator.HORIZONTAL), BorderLayout.CENTER);
 		jPanelTopNorthLSection.add(textFileLabelL);
 		jPanelTopNorthLSection.add(textFileFieldL);
