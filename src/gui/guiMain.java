@@ -25,10 +25,6 @@ import java.awt.event.WindowAdapter;
 
 public class guiMain extends Frame implements WindowListener
 {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JFrame frmPirexDocumentRetrieval;
 	private LoadTab loadtab = new LoadTab();
@@ -94,7 +90,6 @@ public class guiMain extends Frame implements WindowListener
 		// Set icon
 		ImageIcon icon = new ImageIcon("res/transparentX.png");
 		frmPirexDocumentRetrieval.setIconImage(icon.getImage());
-
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(15, 16, 1608, 681);
@@ -106,7 +101,6 @@ public class guiMain extends Frame implements WindowListener
 		
 		JPanel loadDocs = loadtab.loadPanelTab();
 		tabbedPane.addTab("Load Documents", null, loadDocs, null);
-		
 		
 		JPanel sumDocs = sumTab.sumPanelTab();
 		tabbedPane.addTab("Summarize Documents", null, sumDocs, null);
@@ -122,13 +116,11 @@ public class guiMain extends Frame implements WindowListener
 	public void windowActivated(WindowEvent e) 
 	{
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void windowClosed(WindowEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -159,10 +151,4 @@ public class guiMain extends Frame implements WindowListener
 		// TODO Auto-generated method stub
 		
 	}
-	
-	//Test
-	
-	
-	
-
 }

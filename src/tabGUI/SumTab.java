@@ -12,7 +12,6 @@ public class SumTab
 	private JTextArea textAreas;
 	final int BORDER_SIZE = 10;
 	
-	
 	public JTextArea getTextAreas() 
 	{
 		return textAreas;
@@ -51,5 +50,4 @@ public class SumTab
 		
 		return sumPanel;
 	}
-
 }

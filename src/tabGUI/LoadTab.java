@@ -85,25 +85,19 @@ public class LoadTab
 	 */
 	public JPanel loadPanelTab() 
 	{
-		//Panel where the connect is added to; what the user sees
+		//Panel for the load tab; interactable by user
 		JPanel loadPanel = new JPanel();
+		
 		loadPanel.setLayout(new BorderLayout());
 		loadPanel.setBorder(BorderFactory.createEmptyBorder(BORDER, BORDER, BORDER, BORDER));
 		
 		processTextAreaL = new JTextArea();
 		processTextAreaL.setEditable(false);
 		
-		//North part of loadPanel
-		JPanel jPanelTopMostLSection = new JPanel();     
+		//Contains the UI file loading elements
+		JPanel jPanelTopMostLSection = new JPanel();
 		
 		jPanelTopMostLSection.setLayout(new BorderLayout());
-		
-		//center part of loadPanel
-		JPanel jPanelCenterLSection = new JPanel();
-		jPanelCenterLSection.setLayout(new BorderLayout());
-		
-		//Adding all the buttons to the Loading Tab
-		
 		
 		jPanelTopMostLSection.add(createLoadBox(), BorderLayout.NORTH);
 		jPanelTopMostLSection.add(createSectionDivision(), BorderLayout.CENTER);
@@ -111,6 +105,10 @@ public class LoadTab
 		
 		loadPanel.add(jPanelTopMostLSection, BorderLayout.NORTH);
 		
+		//Panel that displays information upon a successful load
+		JPanel jPanelCenterLSection = new JPanel();
+		
+		jPanelCenterLSection.setLayout(new BorderLayout());
 		jPanelCenterLSection.add(processTextAreaL, BorderLayout.CENTER);
 		
 		loadPanel.add(jPanelCenterLSection, BorderLayout.CENTER);
@@ -239,6 +237,10 @@ public class LoadTab
 		return jPanelTopLSectionDivision;
 	}
 	
+	/**
+	 * Creates the process button for loading files
+	 * @return JPanel with button component named Process
+	 */
 	private JPanel createProcessButton()
 	{
 		JPanel processPanel = new JPanel();
@@ -253,5 +255,4 @@ public class LoadTab
 		
 		return processPanel;
 	}
-	
 }
