@@ -40,7 +40,7 @@ public class SumListener implements ChangeListener {
 	    	}
 	    	else
 	    	{
-	    		sumtab.getTextAreas().append("No files currently saved in Pirex");
+	    		sumtab.getTextAreas().append("No files currently saved in Pirex"); 
 	    	}
 	    }
 	}
