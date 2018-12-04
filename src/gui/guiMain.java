@@ -23,7 +23,8 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;  
 import java.awt.event.WindowAdapter;
 
-public class guiMain extends Frame implements WindowListener{
+public class guiMain extends Frame implements WindowListener
+{
 
 	/**
 	 * 
@@ -38,7 +39,8 @@ public class guiMain extends Frame implements WindowListener{
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -114,7 +116,8 @@ public class guiMain extends Frame implements WindowListener{
 	}
 
 	@Override
-	public void windowActivated(WindowEvent e) {
+	public void windowActivated(WindowEvent e) 
+	{
 		// TODO Auto-generated method stub
 		
 	}
