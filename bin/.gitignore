@@ -1,20 +1,4 @@
 /Menu/
-/engine/
-/gui/
+/textProcessor/
 /indexer/
-/pirex.PNG
-/pirexLogo.PNG
-/tabGUI/
-/textProcessor/
-/transparentPirex.png
-/transparentX.png
 /gui/
-<<<<<<< HEAD
-/engine/
-/textProcessor/
-/tabGUI/
-=======
-/tabGUI/
-/engine/
-/textProcessor/
->>>>>>> refs/heads/Talal_TestBranch
