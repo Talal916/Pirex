@@ -9,7 +9,7 @@ public class MenuBar {
 
 	JMenuBar menuBar;
 	JMenu fileMenu, optionsMenu, helpMenu;
-	JMenuItem item, aboutItem, indexItem;
+	JMenuItem item, aboutItem, indexItem,sourcesItem, documentsItem;
 	private JMenuItem item_4;
 	private JMenuItem item_3;
 	private JMenuItem item_2;
@@ -38,12 +38,14 @@ public class MenuBar {
 		item.setFont(new Font("Calibri", Font.PLAIN, 22));
 		fileMenu.add(item);
 		menuBar.add(fileMenu);
+		item.addActionListener(new ErrorDialog("res/pirex.png"));
 						
 		//Add save query to the file menu
 		item_1 = new JMenuItem("Save Query");
 		item_1.setFont(new Font("Calibri", Font.PLAIN, 22));
 		fileMenu.add(item_1);
 		menuBar.add(fileMenu);
+		item_1.addActionListener(new ErrorDialog("res/pirex.png"));
 
 		//Add exit to the file menu
 		item_2 = new JMenuItem("Exit");
@@ -61,11 +63,13 @@ public class MenuBar {
 		item_3.setFont(new Font("Calibri", Font.PLAIN, 22));
 		optionsMenu.add(item_3);
 		menuBar.add(optionsMenu);
+		item_3.addActionListener(new ErrorDialog("res/pirex.png"));
 
 		item_4 = new JMenuItem("Documents");
 		item_4.setFont(new Font("Calibri", Font.PLAIN, 22));
 		optionsMenu.add(item_4);
 		menuBar.add(optionsMenu);
+		item_4.addActionListener(new ErrorDialog("res/pirex.png"));
 		
 		// Help menu
 		helpMenu = new JMenu("Help");
@@ -146,6 +150,27 @@ class AboutDialog implements ActionListener {
 			description = "Pirex Information Retrieval System \u00a9 2018\nGroup 10 Section 5";
 	
 	public AboutDialog(String filepath) {
+		icon = new ImageIcon(filepath);
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+		// Create dialog box
+		JOptionPane.showMessageDialog(
+				null, 
+				description, 
+				title, 
+				JOptionPane.INFORMATION_MESSAGE,
+				icon
+				);
+	}
+}
+class ErrorDialog implements ActionListener {
+
+	ImageIcon icon;
+	String title = "Error",
+			description = "Cannot display the following information";
+	
+	public ErrorDialog(String filepath) {
 		icon = new ImageIcon(filepath);
 	}
 	
