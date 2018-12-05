@@ -2,6 +2,7 @@ package tabGUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.Box;
 import javax.swing.JPanel;
@@ -14,11 +15,18 @@ public class SumTab
 	final Dimension LR_BORDERS = new Dimension(BORDER_SIZE, Integer.MAX_VALUE);
 	final Dimension TB_BORDERS = new Dimension(Integer.MAX_VALUE, BORDER_SIZE);
 	
+
+	
 	public JTextArea getTextAreas() 
 	{
 		return textAreas;
 	}
 	
+
+
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public JPanel sumPanelTab() 
 	{
 		JPanel sumPanel = new JPanel();
@@ -36,6 +44,7 @@ public class SumTab
 		RBorder.add(Box.createRigidArea(LR_BORDERS));
 		
 		textAreas = new JTextArea();
+		textAreas.setFont(new Font("Calibri", Font.BOLD, 22));
 		textAreas.setEditable(false);
 		
 		JScrollPane scrollPanes = new JScrollPane(textAreas);
@@ -52,4 +61,5 @@ public class SumTab
 		
 		return sumPanel;
 	}
+
 }
