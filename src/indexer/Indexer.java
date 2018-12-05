@@ -1,11 +1,10 @@
 package indexer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.ArrayList;
 
 import textProcessor.ProcessedBook;
 
@@ -13,9 +12,7 @@ public class Indexer {
 	private Map<String, HashMap<Integer, ArrayList<Integer>>> index;
 	private int indexCount;
 	private int fileCount;
-	private int posting;
-	String[] stopList = {"", "a", "an", "and", "are", "but", "did", "do", "does", "for", "had", "has", "is", 
-						 "it", "its", "of", "or", "that", "the", "this", "to", "were", "which", "with"};	
+	private int posting;	
 	
 	public Indexer() {
 		index = new TreeMap<String, HashMap<Integer, ArrayList<Integer>>>();
@@ -25,50 +22,39 @@ public class Indexer {
 	}
 	
 	public void addTerms(ProcessedBook book) {
-		/*fileCount = 0;
-		posting = 0;*/
-		ProcessedBook b = book;
-		int opusNum = b.getOpusNum();
-		LinkedList<StringBuilder> words = b.getOpus();
+		LinkedList<StringBuilder> opus = book.getOpus();
+		int opusNum = book.getOpusNum();
 		String line = "";
-		for(int i = 0; i<words.size(); i++) {
-			line = words.get(i).toString().toLowerCase();
-			for(String s : line.split("[\\W_]")) {
-				s.trim();
-				if(!searchStopList(s)) {
-					HashMap<Integer, ArrayList<Integer>> map = index.get(s);
-					if (map == null) {
-						map = new HashMap<Integer, ArrayList<Integer>>();
-						index.put(s, map);
-						map.put(opusNum, new ArrayList<Integer>());
-						this.fileCount++;
-						this.indexCount++;
-					} 
-					else if (!map.containsKey(opusNum)) {
-						map.put(opusNum, new ArrayList<Integer>());
-					} 
-					if (!map.get(opusNum).contains(i)) {
-						map.get(opusNum).add(i);
-						posting++;
-					}
-				}
+		for(int i = 0; i<opus.size(); i++) {
+			line = opus.get(i).toString().toLowerCase();
+			for(String s : line.split("\\s+")) {
+				HashMap<Integer, ArrayList<Integer>> map = index.get(s);
+				if (map == null) {
+					map = new HashMap<Integer, ArrayList<Integer>>();
+					map.put(opusNum, new ArrayList<Integer>());
+					index.put(s, map);
+					fileCount++;
+					indexCount++;
+				} else if (!map.containsKey(opusNum)) {
+					map.put(opusNum, new ArrayList<Integer>());
+				} 
+				if (!map.get(opusNum).contains(i)) {
+					map.get(opusNum).add(i);
+					posting++;
+				}	
 			}
 		}			
 	}
 	
 	public int getPostings() {
-		int posting = 0;
-		for(String word: this.index.keySet()) {
-			HashMap<Integer, ArrayList<Integer>> pList = this.index.get(word);
-			for(Integer key: pList.keySet()) {
-				posting += pList.get(key).size();
+		int postings = 0;
+		for(String s: index.keySet()) {
+			HashMap<Integer, ArrayList<Integer>> map = index.get(s);
+			for(Integer i: map.keySet()) {
+				postings += map.get(i).size();
 			}   
 		}
-		return posting;
-	}
-	
-	private boolean searchStopList(String s) {
-		return(Arrays.asList(stopList).contains(s));
+		return postings;
 	}
 
 	public boolean searchIndex(String s) {
@@ -96,13 +82,13 @@ public class Indexer {
 	}
 	
 	public int getSize() {
-		return this.index.size();
+		return index.size();
 	}
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for(String s: this.index.keySet()) {
-			sb.append("Key: "+ s + " Value: "+ this.index.get(s).toString() + "\n");
+		for(String s: index.keySet()) {
+			sb.append("Key: " + s + " Value: " + index.get(s).toString() + "\n");
 		}
 		return sb.toString();
 	}
