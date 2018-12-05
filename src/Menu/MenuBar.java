@@ -20,6 +20,7 @@ public class MenuBar {
 	 * Default constructor
 	 */
 	
+	
 	public MenuBar (JFrame frame) {
 		
 		this.frame = frame;

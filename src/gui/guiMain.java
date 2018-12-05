@@ -5,6 +5,7 @@ import java.awt.Frame;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
@@ -81,16 +82,19 @@ public class guiMain extends Frame implements WindowListener
 		WindowAdapter windowCloseHandler = new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
 			{
-				 String[] exitOptions = {"Yes","No"};
-			     int exitAnswer = JOptionPane.showOptionDialog(
-			    		 null,
-			    		 "Are you sure you want to exit?",
-			    		 "Pirex",JOptionPane.DEFAULT_OPTION,
-			    		 JOptionPane.WARNING_MESSAGE,
-			    		 null,
-			    		 exitOptions,
-			    		 exitOptions[1]
-			    		);
+				String exitOptions[] = {"Yes","No"};
+				JLabel exitPrompt = new JLabel("Are you sure you want to exit?");
+				exitPrompt.setFont(new Font("Arial", Font.PLAIN, 24));
+				int exitAnswer = JOptionPane.showOptionDialog(
+						null,
+						exitPrompt,
+						"Pirex",
+						JOptionPane.DEFAULT_OPTION,
+						JOptionPane.WARNING_MESSAGE,
+						null,
+						exitOptions,
+						exitOptions[1]
+						);
 			     if(exitAnswer == JOptionPane.YES_OPTION)
 			     {
 			            System.exit(0);
