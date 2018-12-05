@@ -1,7 +1,6 @@
 package indexer;
 
 import java.util.HashMap;
-
 import javax.swing.JTabbedPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -22,25 +21,21 @@ public class SumListener implements ChangeListener {
 	public void stateChanged(ChangeEvent e) {
 		sumtab.getTextAreas().setText("");
 	    JTabbedPane sourceTabbedPane = (JTabbedPane) e.getSource();
-	    int index = sourceTabbedPane.getSelectedIndex();
-	    if (sourceTabbedPane.getTitleAt(index).equals("Summarize Documents")) {
+	    int i = sourceTabbedPane.getSelectedIndex();
+	    if (sourceTabbedPane.getTitleAt(i).equals("Summarize Documents")) {
+	    	Indexer index = ProcessorListener.getIndex();
 	    	HashMap<Integer, ProcessedBook> map = ProcessorListener.getBooks();
-	    	Indexer i = ProcessorListener.getIndex();
-	    	if (map != null && !map.isEmpty()) {
+	    	StringBuilder sb = new StringBuilder();
+	    	if (map != null) {
 	    		for (Integer key : map.keySet()) {
 	    			ProcessedBook book = map.get(key);
-	    			StringBuilder sb = new StringBuilder();
-	    			sb.append("Opus   " + book.getOpusNum() + ": ");
-	    			sb.append(book.getAuthor() + "  " + book.getTitle());
-	    			sb.append("   " + book.getParagraphNum() + " documents\n");
-	    			sb.append("             " + book.getFile().getAbsolutePath() + "\n" );
+	    			sb.append("Opus " + book.getOpusNum() + ": " + book.getTitle() + ", by" + book.getAuthor() + ";" + book.getParagraphNum() + " total paragraphs" + "\n" + book.getFile().getAbsolutePath() + "\n");
 	    			sumtab.getTextAreas().append(sb.toString());
 	    		}
-	    		sumtab.getTextAreas().append("\nIndex terms: "+i.getIndexCount()+"\n");
-	    		sumtab.getTextAreas().append("Postings: "+i.getPostings());
+	    		sumtab.getTextAreas().append("\nIndex terms: "+index.getIndexCount()+"\n");
+	    		sumtab.getTextAreas().append("Postings: "+index.getPostings());
 	    	}
-	    	else
-	    	{
+	    	else {
 	    		sumtab.getTextAreas().append("No files currently saved in Pirex"); 
 	    	}
 	    }
