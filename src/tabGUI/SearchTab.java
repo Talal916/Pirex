@@ -1,6 +1,6 @@
 package tabGUI;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout; 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.TextArea;
@@ -19,9 +19,11 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import engine.SearchListener;
+import java.awt.Font;
 
 public class SearchTab 
-{
+{	
+	
 	JTextField textFieldQ;
 	
 	TextArea searchDocumentsFound; 
@@ -66,9 +68,15 @@ public class SearchTab
 		return CLEAR;
 	}
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+
+	
 	public JPanel searchPanelTab() 
 	{
 		DefaultListModel<String> model = new DefaultListModel<String>();
+		docFound.setFont(new Font("Calibri", Font.PLAIN, 22));
 		
 		docFound.setModel(model);
 		docFound.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -82,13 +90,16 @@ public class SearchTab
 		searchPanel.setLayout(new BorderLayout());
 		
 		JLabel labelQ = new JLabel("Query: ", JLabel.RIGHT);
+		labelQ.setFont(new Font("Calibri", Font.PLAIN, 22));
 		JButton clearButtonQ = new JButton(CLEAR);
+		clearButtonQ.setFont(new Font("Calibri", Font.PLAIN, 22));
 		clearButtonQ.addActionListener(new SearchListener(this));
 
 		searchDocumentsFound = new TextArea();
 		
 		//text field to type in query
 		textFieldQ = new JTextField(TEXTFIELD_QVALUE);
+		textFieldQ.setFont(new Font("Calibri", Font.PLAIN, 22));
 		textFieldQ.addKeyListener(new SearchListener(this));
 		
 		//Adding buttons to the Searching Tab
@@ -133,6 +144,7 @@ public class SearchTab
 		
 		//DisplayCount is the number of documents that were returned from the search
 		displayCount = new JTextField(LONGTEXTFIELD_VALUE);
+		displayCount.setFont(new Font("Calibri", Font.PLAIN, 22));
 		displayCount.setEditable(false);
 		displayCount.setMinimumSize(DISPLAY_COUNT_SIZE);
 		displayCount.setMaximumSize(DISPLAY_COUNT_SIZE);
@@ -145,6 +157,7 @@ public class SearchTab
 		
 		//long form display of documents
 		longFormOfDocument = new TextArea();
+		longFormOfDocument.setFont(new Font("Calibri", Font.PLAIN, 22));
 		longFormOfDocument.setMinimumSize(LONG_FORM_SIZE);
 		box.add(longFormOfDocument);
 		

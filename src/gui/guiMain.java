@@ -81,7 +81,7 @@ public class guiMain extends Frame implements WindowListener
 		WindowAdapter windowCloseHandler = new WindowAdapter() {
 			public void windowClosing(WindowEvent e)
 			{
-				 String exitOptions[] = {"Yes","No"};
+				 String[] exitOptions = {"Yes","No"};
 			     int exitAnswer = JOptionPane.showOptionDialog(
 			    		 null,
 			    		 "Are you sure you want to exit?",

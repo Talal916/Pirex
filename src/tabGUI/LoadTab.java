@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 
 import textProcessor.ProcessorListener;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 
 public class LoadTab 
@@ -97,6 +98,7 @@ public class LoadTab
 		loadPanel.setBorder(BorderFactory.createEmptyBorder(BORDER, BORDER, BORDER, BORDER));
 		
 		processTextAreaL = new JTextArea();
+		processTextAreaL.setFont(new Font("Calibri", Font.PLAIN, 22));
 		processTextAreaL.setEditable(false);
 		
 		//Contains the UI file loading elements
@@ -167,6 +169,7 @@ public class LoadTab
 		JLabel textFileLabelL = new JLabel("Text File: ", JLabel.RIGHT);
 		textFileLabelL.setFont(new Font("Calibri", Font.BOLD, 22));
 		textFileFieldL = new JTextField(TEXTFILEFIELD_LVALUE); 
+		textFileFieldL.setFont(new Font("Calibri", Font.PLAIN, 22));
 		
 		JButton browseButtonL = new JButton(BROWSE);
 		browseButtonL.setFont(new Font("Calibri", Font.PLAIN, 22));
@@ -196,6 +199,7 @@ public class LoadTab
 		types[0] = "Project Gutenberg";
 		
 		JComboBox textFileTypeComboBoxL = new JComboBox(types);
+		textFileTypeComboBoxL.setFont(new Font("Calibri", Font.PLAIN, 22));
 		textFileTypeComboBoxL.setPreferredSize(new Dimension(COMBOBOX_VALUE, SHORTTEXTFIELD_VALUE));
 		
 		textFileTypeBoxContents.add(textFileTypeL);
@@ -216,10 +220,12 @@ public class LoadTab
 		JLabel textTitleL = new JLabel("Title: ", JLabel.RIGHT);
 		textTitleL.setFont(new Font("Calibri", Font.BOLD, 22));
 		textTitleFieldL = new JTextField(TEXTTITLEFIELD_LVALUE);
+		textTitleFieldL.setFont(new Font("Calibri", Font.PLAIN, 22));
 		
 		JLabel textAuthorL = new JLabel("Author: ", JLabel.RIGHT);
 		textAuthorL.setFont(new Font("Calibri", Font.BOLD, 22));
 		textAuthorFieldL = new JTextField(SHORTTEXTFIELD_VALUE);
+		textAuthorFieldL.setFont(new Font("Calibri", Font.PLAIN, 22));
 		
 		titleAndAuthorBoxContents.add(textTitleL);
 		titleAndAuthorBoxContents.add(Box.createRigidArea(hSpacing));
@@ -256,8 +262,8 @@ public class LoadTab
 		JPanel processPanel = new JPanel();
 		
 		processButtonL = new JButton(PROCESS);
-		processButtonL.setFont(new Font("Calibri", Font.BOLD, 22));
 		processButtonL.setEnabled(false);
+		processButtonL.setFont(new Font("Calibri", Font.BOLD, 22));
 		processButtonL.addActionListener(new ProcessorListener(this));
 		
 		processPanel.setLayout(new BorderLayout());
