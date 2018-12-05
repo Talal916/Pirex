@@ -29,7 +29,7 @@ public class SumListener implements ChangeListener {
 	    	if (map != null) {
 	    		for (Integer key : map.keySet()) {
 	    			ProcessedBook book = map.get(key);
-	    			sb.append("Opus " + book.getOpusNum() + ": " + book.getTitle() + ", by" + book.getAuthor() + ";" + book.getParagraphNum() + " total paragraphs" + "\n" + book.getFile().getAbsolutePath() + "\n");
+	    			sb.append("Opus " + book.getOpusNum() + ": " + book.getTitle() + ", by " + book.getAuthor() + "; " + book.getParagraphNum() + " total paragraphs" + "\n" + book.getFile().getAbsolutePath() + "\n");
 	    			sumtab.getTextAreas().append(sb.toString());
 	    		}
 	    		sumtab.getTextAreas().append("\nIndex terms: "+index.getIndexCount()+"\n");

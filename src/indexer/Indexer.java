@@ -27,7 +27,7 @@ public class Indexer {
 		String line = "";
 		for(int i = 0; i<opus.size(); i++) {
 			line = opus.get(i).toString().toLowerCase();
-			for(String s : line.split("\\s+")) {
+			for(String s : line.split("\\W")) {
 				HashMap<Integer, ArrayList<Integer>> map = index.get(s);
 				if (map == null) {
 					map = new HashMap<Integer, ArrayList<Integer>>();
@@ -88,7 +88,7 @@ public class Indexer {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		for(String s: index.keySet()) {
-			sb.append("Key: " + s + " Value: " + index.get(s).toString() + "\n");
+			sb.append("Key: " + s + "; Value: " + index.get(s).toString() + "\n");
 		}
 		return sb.toString();
 	}

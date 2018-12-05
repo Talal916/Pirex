@@ -13,8 +13,6 @@ public class ProcessedBook {
 	private String title;
 	private String author;
 	private int paragraphNum;
-	private static final int LINE_TITLE = 9;
-	private static final int LINE_AUTHOR = 11;
 	
 	public ProcessedBook(File file, int num) {
 		opus = new LinkedList<StringBuilder>();
@@ -30,12 +28,18 @@ public class ProcessedBook {
 			FileReader fr = new FileReader(book.getAbsolutePath());
 			BufferedReader br = new BufferedReader(fr);
 			StringBuilder sb = new StringBuilder();
-			String line = br.readLine();
-			while(line != null) {
-				title = line.substring(LINE_TITLE);
-				author = line.substring(LINE_AUTHOR);
+			String line = "";
+			while((line = br.readLine()) != null) {
+				if(line.contains("Title: ")) {
+					if(line.substring(7).equals("")) title = "None";
+					else title = line.substring(7); 
+				}
+				if(line.contains("Author: ")) {
+					if(line.substring(8).equals("")) author = "Anonymous";
+					else author = line.substring(8); 
+				}
 				if(line.contains("***START") || line.contains("*** START")) {
-					while(((line != null) && !(line.contains("***END") || line.contains("*** END")))) {
+					while((((line = br.readLine()) != null) && !(line.contains("***END") || line.contains("*** END")))) {
 					  if (!line.equals("")) sb.append(line + "\n");
 					  else {
 						  if (!sb.toString().equals("")) {
@@ -55,7 +59,7 @@ public class ProcessedBook {
 	}
 
 	public String getShortForm(int i) {
-		String[] s = opus.get(i).toString().split("\\s+");
+		String[] s = opus.get(i).toString().split("\\W");
 		String sf = "";
 		int count = 0;
 		while((s.length-1)>count) {
