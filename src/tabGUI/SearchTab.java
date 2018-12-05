@@ -17,6 +17,8 @@ import javax.swing.ListSelectionModel;
 
 import engine.SearchListener;
 import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 
 public class SearchTab 
 {	
@@ -141,6 +143,7 @@ public class SearchTab
 		
 		//DisplayCount is the number of documents that were returned from the search
 		displayCount = new JTextField(LONGTEXTFIELD_VALUE);
+		displayCount.setHorizontalAlignment(SwingConstants.CENTER);
 		displayCount.setFont(new Font("Calibri", Font.PLAIN, 22));
 		displayCount.setEditable(false);
 		displayCount.setMinimumSize(DISPLAY_COUNT_SIZE);
