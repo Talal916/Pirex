@@ -22,8 +22,6 @@ import javax.swing.JPanel;
 import java.awt.event.WindowEvent;  
 import java.awt.event.WindowListener;  
 import java.awt.event.WindowAdapter;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Font;
@@ -74,8 +72,8 @@ public class guiMain extends Frame implements WindowListener
 		frmPirexDocumentRetrieval.setTitle("Pirex"); //set window title/
 		frmPirexDocumentRetrieval.setBounds(0, 0, 700, 600);
 		
-		//Minimum size the window can be without causing issues in layout of tabs
-		frmPirexDocumentRetrieval.setMinimumSize(new Dimension(700, 600));
+		//Minimum size of window that looks reasonable 
+		frmPirexDocumentRetrieval.setMinimumSize(new Dimension(1400, 600));
 		frmPirexDocumentRetrieval.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		contentPane = frmPirexDocumentRetrieval.getContentPane();
 		

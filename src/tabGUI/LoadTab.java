@@ -17,10 +17,14 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import textProcessor.ProcessorListener;
+import java.awt.Font;
 
 
 public class LoadTab 
 {
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	JFrame frame;
 	JTextField textFileFieldL, textTitleFieldL, textAuthorFieldL;
 	JTextArea processTextAreaL;
@@ -82,6 +86,7 @@ public class LoadTab
 	/**
 	 * Creates the interactable Load panel for loading files to Pirex
 	 * @return The load tab for Pirex
+	 * @wbp.parser.entryPoint
 	 */
 	public JPanel loadPanelTab() 
 	{
@@ -160,9 +165,11 @@ public class LoadTab
 		Box textFileBoxContents = Box.createHorizontalBox();
 		
 		JLabel textFileLabelL = new JLabel("Text File: ", JLabel.RIGHT);
+		textFileLabelL.setFont(new Font("Calibri", Font.BOLD, 22));
 		textFileFieldL = new JTextField(TEXTFILEFIELD_LVALUE); 
 		
 		JButton browseButtonL = new JButton(BROWSE);
+		browseButtonL.setFont(new Font("Calibri", Font.PLAIN, 22));
 		browseButtonL.addActionListener(new ProcessorListener(this));
 		
 		textFileBoxContents.add(textFileLabelL);
@@ -183,6 +190,7 @@ public class LoadTab
 		Box textFileTypeBoxContents = Box.createHorizontalBox();
 		
 		JLabel textFileTypeL = new JLabel("Text File Type: ", JLabel.RIGHT);
+		textFileTypeL.setFont(new Font("Calibri", Font.BOLD, 22));
 		
 		String[] types = new String[1];
 		types[0] = "Project Gutenberg";
@@ -206,9 +214,11 @@ public class LoadTab
 		Box titleAndAuthorBoxContents = Box.createHorizontalBox();
 		
 		JLabel textTitleL = new JLabel("Title: ", JLabel.RIGHT);
+		textTitleL.setFont(new Font("Calibri", Font.BOLD, 22));
 		textTitleFieldL = new JTextField(TEXTTITLEFIELD_LVALUE);
 		
 		JLabel textAuthorL = new JLabel("Author: ", JLabel.RIGHT);
+		textAuthorL.setFont(new Font("Calibri", Font.BOLD, 22));
 		textAuthorFieldL = new JTextField(SHORTTEXTFIELD_VALUE);
 		
 		titleAndAuthorBoxContents.add(textTitleL);
@@ -246,6 +256,7 @@ public class LoadTab
 		JPanel processPanel = new JPanel();
 		
 		processButtonL = new JButton(PROCESS);
+		processButtonL.setFont(new Font("Calibri", Font.BOLD, 22));
 		processButtonL.setEnabled(false);
 		processButtonL.addActionListener(new ProcessorListener(this));
 		
