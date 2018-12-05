@@ -22,6 +22,11 @@ import javax.swing.JPanel;
 import java.awt.event.WindowEvent;  
 import java.awt.event.WindowListener;  
 import java.awt.event.WindowAdapter;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import java.awt.Font;
 
 public class guiMain extends Frame implements WindowListener
 {
@@ -79,7 +84,15 @@ public class guiMain extends Frame implements WindowListener
 			public void windowClosing(WindowEvent e)
 			{
 				 String exitOptions[] = {"Yes","No"};
-			     int exitAnswer = JOptionPane.showOptionDialog(null,"Are you sure you want to exit?","Pirex",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,exitOptions,exitOptions[1]);
+			     int exitAnswer = JOptionPane.showOptionDialog(
+			    		 null,
+			    		 "Are you sure you want to exit?",
+			    		 "Pirex",JOptionPane.DEFAULT_OPTION,
+			    		 JOptionPane.WARNING_MESSAGE,
+			    		 null,
+			    		 exitOptions,
+			    		 exitOptions[1]
+			    		);
 			     if(exitAnswer == JOptionPane.YES_OPTION)
 			     {
 			            System.exit(0);
@@ -91,7 +104,9 @@ public class guiMain extends Frame implements WindowListener
 		ImageIcon icon = new ImageIcon("res/transparentX.png");
 		frmPirexDocumentRetrieval.setIconImage(icon.getImage());
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.LEFT);
+		tabbedPane.setFont(new Font("Calibri", Font.BOLD, 45));
+		tabbedPane.setBorder(new LineBorder(Color.LIGHT_GRAY, 2, true));
 		tabbedPane.setBounds(15, 16, 1608, 681);
 		contentPane.add(tabbedPane);
 		
