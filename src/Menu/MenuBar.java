@@ -2,6 +2,7 @@ package Menu;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Font;
 
 //options menu item with Documents and sources buttons
 public class MenuBar {
@@ -9,6 +10,10 @@ public class MenuBar {
 	JMenuBar menuBar;
 	JMenu fileMenu, optionsMenu, helpMenu;
 	JMenuItem item, aboutItem, indexItem;
+	private JMenuItem item_4;
+	private JMenuItem item_3;
+	private JMenuItem item_2;
+	private JMenuItem item_1;
 	JFrame frame;
 
 	/**
@@ -20,43 +25,54 @@ public class MenuBar {
 		this.frame = frame;
 		
 		menuBar = new JMenuBar();
+		menuBar.setFont(new Font("Calibri", Font.PLAIN, 22));
 
 		// The File menu
 		fileMenu = new JMenu("File");
+		fileMenu.setFont(new Font("Calibri", Font.PLAIN, 22));
 		
 		
 		//Add load query to the file menu
 		item = new JMenuItem("Load Query");
+		item.setFont(new Font("Calibri", Font.PLAIN, 22));
 		fileMenu.add(item);
 		menuBar.add(fileMenu);
 						
 		//Add save query to the file menu
-		item = new JMenuItem("Save Query");
-		fileMenu.add(item);
+		item_1 = new JMenuItem("Save Query");
+		item_1.setFont(new Font("Calibri", Font.PLAIN, 22));
+		fileMenu.add(item_1);
 		menuBar.add(fileMenu);
 
 		//Add exit to the file menu
-		item = new JMenuItem("Exit");
-		fileMenu.add(item);
+		item_2 = new JMenuItem("Exit");
+		item_2.setFont(new Font("Calibri", Font.PLAIN, 22));
+		fileMenu.add(item_2);
 		menuBar.add(fileMenu);
-        item.addActionListener(new ExitApp());
+        item_2.addActionListener(new ExitApp());
 		
 		// The Options menu
 		optionsMenu = new JMenu("Options");
+		optionsMenu.setFont(new Font("Calibri", Font.PLAIN, 22));
 		
 		//Add Sources to the options menu
-		item = new JMenuItem("Sources");
-		optionsMenu.add(item);
+		item_3 = new JMenuItem("Sources");
+		item_3.setFont(new Font("Calibri", Font.PLAIN, 22));
+		optionsMenu.add(item_3);
 		menuBar.add(optionsMenu);
 
-		item = new JMenuItem("Documents");
-		optionsMenu.add(item);
+		item_4 = new JMenuItem("Documents");
+		item_4.setFont(new Font("Calibri", Font.PLAIN, 22));
+		optionsMenu.add(item_4);
 		menuBar.add(optionsMenu);
 		
 		// Help menu
 		helpMenu = new JMenu("Help");
+		helpMenu.setFont(new Font("Calibri", Font.PLAIN, 22));
 		indexItem = new JMenuItem("Index");
+		indexItem.setFont(new Font("Calibri", Font.PLAIN, 22));
 		aboutItem = new JMenuItem("About");
+		aboutItem.setFont(new Font("Calibri", Font.PLAIN, 22));
 		
 		//Add Index item to the help menu
 		indexItem.addActionListener(new IndexDialog("res/pirex.png"));
@@ -81,9 +97,11 @@ class ExitApp implements ActionListener
     {
 		// Confirm before exiting
 		String exitOptions[] = {"Yes","No"};
+		JLabel exitPrompt = new JLabel("Are you sure you want to exit?");
+		exitPrompt.setFont(new Font("Arial", Font.PLAIN, 24));
 		int exitAnswer = JOptionPane.showOptionDialog(
 				null,
-				"Are you sure you want to exit?",
+				exitPrompt,
 				"Pirex",
 				JOptionPane.DEFAULT_OPTION,
 				JOptionPane.WARNING_MESSAGE,
@@ -124,7 +142,7 @@ class AboutDialog implements ActionListener {
 
 	ImageIcon icon;
 	String title = "About Pirex",
-			description = "Pirex Information Retrieval System � 2018\nGroup 10 Section 5";
+			description = "Pirex Information Retrieval System \u00a9 2018\nGroup 10 Section 5";
 	
 	public AboutDialog(String filepath) {
 		icon = new ImageIcon(filepath);
