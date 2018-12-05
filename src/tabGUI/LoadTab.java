@@ -2,7 +2,6 @@ package tabGUI;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -18,7 +17,6 @@ import javax.swing.JTextField;
 
 import textProcessor.ProcessorListener;
 import java.awt.Font;
-import javax.swing.SwingConstants;
 
 
 public class LoadTab 
