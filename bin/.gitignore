@@ -1,10 +1,4 @@
 /Menu/
-/engine/
-/gui/
-/indexer/
-/pirex.PNG
-/pirexLogo.PNG
 /tabGUI/
-/textProcessor/
-/transparentPirex.png
-/transparentX.png
+/gui/
+/engine/

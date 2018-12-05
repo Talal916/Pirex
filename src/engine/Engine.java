@@ -1,18 +1,15 @@
 package engine;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Map;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
+import java.util.ArrayList;
 
 import indexer.Indexer;
 
 public class Engine {
 	private Map<String, HashMap<Integer, ArrayList<Integer>>> index;
 	private static ArrayList<String> query;
-	String[] stopList = {"", "a", "an", "and", "are", "but", "did", "do", "does", "for", "had", "has", "is", 
-						 "it", "its", "of", "or", "that", "the", "this", "to", "were", "which", "with"};
 	
 	public Engine(Indexer i) {
 		index = i.getIndex();
@@ -21,19 +18,16 @@ public class Engine {
 	
 	public void addQuery(String s) {
 		query.clear();
-		String phrase = s;
-		if(!phrase.contains(" ")) {
-			query.add(phrase.toLowerCase());
+		if(!s.contains(" ")) {
+			query.add(s.toLowerCase());
 			return;
 		}
 		else {
-			phrase += " ";
-			while(phrase.contains(" ")) {
-				String word = phrase.substring(0,phrase.indexOf(" "));
-				if(!Arrays.asList(stopList).contains(word)) {
-					query.add(word.toLowerCase());
-				}
-				phrase = phrase.substring(phrase.indexOf(" ")+1);
+			s += " ";
+			while(s.contains(" ")) {
+				String word = s.substring(0,s.indexOf(" "));
+				query.add(word.toLowerCase());
+				s = s.substring(s.indexOf(" ")+1);
 			}
 		}
 	}
@@ -41,8 +35,8 @@ public class Engine {
 	public ArrayList<StringBuilder> getResults(LinkedList<StringBuilder> list) {
 		ArrayList<StringBuilder> results = new ArrayList<StringBuilder>();
 		for (StringBuilder sb : list) {
-			for(String temp : query) {
-				if (sb.toString().toLowerCase().contains(temp)) {
+			for(String s : query) {
+				if (sb.toString().toLowerCase().contains(s)) {
 					  results.add(sb);
 				}
 			}
@@ -58,7 +52,6 @@ public class Engine {
 		return query;
 	}
 	
-	//Flags if queries were found
 	public boolean queryFound(String s) {
 		return index.containsKey(s);
 	}
