@@ -22,10 +22,10 @@ import textProcessor.ProcessorListener;
 
 public class SearchListener implements ActionListener, KeyListener, ListSelectionListener {
 	private static SearchTab searchTab;
-	private HashMap<Integer, ArrayList<Integer>> queryLocations;
-	private static Engine engine;
 	private static Indexer index = ProcessorListener.getIndex();
+	private static Engine engine;
 	private static Map<String, StringBuilder> format = new LinkedHashMap<String, StringBuilder>();
+	private HashMap<Integer, ArrayList<Integer>> queryLocations;
 	private DefaultListModel<String> model;
 
 	public SearchListener(SearchTab st) {
@@ -91,12 +91,12 @@ public class SearchListener implements ActionListener, KeyListener, ListSelectio
 	}
 
 	@Override
-	public void valueChanged(ListSelectionEvent ev) {
-		JList<String> list =  ((JList<String>) ev.getSource());
+	public void valueChanged(ListSelectionEvent e) {
+		JList<String> list =  ((JList<String>) e.getSource());
 		if (list.getSelectedValue() != null) {
-			String sb = list.getSelectedValue();
-			StringBuilder get = format.get(sb);
-			searchTab.getLongFormOfDocument().setText(get.toString());
+			String s = list.getSelectedValue();
+			StringBuilder sb = format.get(s);
+			searchTab.getLongFormOfDocument().setText(sb.toString());
 		}
 	}
 	

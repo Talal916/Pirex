@@ -14,6 +14,7 @@ public class ProcessorListener implements ActionListener {
 	private static LinkedHashMap<Integer, ProcessedBook> books = new LinkedHashMap<Integer, ProcessedBook>();
 	private static Indexer index = new Indexer();
 	private static ProcessedBook book;
+	private int num = 0;
 
 	public ProcessorListener(LoadTab tab) {
 		ProcessorListener.loadTab = tab;
@@ -31,9 +32,8 @@ public class ProcessorListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals(loadTab.getBROWSE())) {
 			int browseVal = loadTab.getFC().showOpenDialog(loadTab.getFrame());
-			int num = 0;
+			num++;
 			if (browseVal == JFileChooser.APPROVE_OPTION) {
-				if (books != null) num++;
 				book = new ProcessedBook(loadTab.getFC().getSelectedFile(), num);
 				JOptionPane.showMessageDialog(loadTab.getFrame(), "Loaded the document");
 				loadTab.getTextFileFieldL().setText((loadTab.getFC().getSelectedFile().getAbsolutePath()));
@@ -44,8 +44,8 @@ public class ProcessorListener implements ActionListener {
 		} 
 	    else if (e.getActionCommand().equals(loadTab.getPROCESS())) {
 	    	book.setTitle(loadTab.getTextTitleFieldL().getText());
-	    	book.setAuthor(loadTab.getTextAuthorFieldL().getText()); 
-	    	if (books.containsKey(book.getOpusNum())) {
+	    	book.setAuthor(loadTab.getTextAuthorFieldL().getText());
+	    	if (checkDuplicate(book.getTitle())) {
 	    		JOptionPane.showMessageDialog(loadTab.getFrame(), "This opus has been processed already.", "Process Error", JOptionPane.WARNING_MESSAGE);
 	    		loadTab.getProcessTextAreaL().setText("");
 	    	} else {
@@ -58,5 +58,13 @@ public class ProcessorListener implements ActionListener {
 	    		loadTab.getProcessButtonL().setEnabled(false);
 	    	}
 	    }
+	}
+	
+	public boolean checkDuplicate(String s) {
+		s = s.trim();
+		for(Integer i : books.keySet()) {
+			if (books.get(i).getTitle().equalsIgnoreCase(s)) return true;
+		}
+		return false;
 	}
 }

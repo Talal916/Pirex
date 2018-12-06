@@ -19,15 +19,15 @@ public class SumListener implements ChangeListener {
 	
 	@Override
 	public void stateChanged(ChangeEvent e) {
-		sumtab.getTextAreas().setText("");
 	    JTabbedPane sourceTabbedPane = (JTabbedPane) e.getSource();
 	    int i = sourceTabbedPane.getSelectedIndex();
 	    if (sourceTabbedPane.getTitleAt(i).equals("Summarize Documents")) {
 	    	Indexer index = ProcessorListener.getIndex();
 	    	HashMap<Integer, ProcessedBook> map = ProcessorListener.getBooks();
 	    	StringBuilder sb = new StringBuilder();
-	    	if (map != null) {
+	    	if (map.size() != 0) {
 	    		for (Integer key : map.keySet()) {
+	    			sumtab.getTextAreas().setText("");
 	    			ProcessedBook book = map.get(key);
 	    			sb.append("Opus " + book.getOpusNum() + ": " + book.getTitle() + ", by " + book.getAuthor() + "; " + book.getParagraphNum() + " total paragraphs" + "\n" + book.getFile().getAbsolutePath() + "\n");
 	    			sumtab.getTextAreas().append(sb.toString());
