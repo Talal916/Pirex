@@ -21,8 +21,7 @@ public class Engine {
 		if(!s.contains(" ")) {
 			query.add(s.toLowerCase());
 			return;
-		}
-		else {
+		} else {
 			s += " ";
 			while(s.contains(" ")) {
 				String word = s.substring(0,s.indexOf(" "));

@@ -40,14 +40,13 @@ public class ProcessedBook {
 				}
 				if(line.contains("***START") || line.contains("*** START")) {
 					while((((line = br.readLine()) != null) && !(line.contains("***END") || line.contains("*** END")))) {
-					  if (!line.equals("")) sb.append(line + "\n");
-					  else {
+					  if (line.equals("")) {
 						  if (!sb.toString().equals("")) {
 							  opus.add(sb);
 							  paragraphNum++;
 						  }
 						  sb = new StringBuilder();
-					  	}
+					  } else sb.append(line + "\n");	
 					}
 				}    
 			}
