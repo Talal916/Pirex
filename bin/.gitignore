@@ -1,9 +1,10 @@
 /Menu/
-/tabGUI/
-/gui/
 /engine/
+/gui/
 /indexer/
-<<<<<<< HEAD
+/pirex.PNG
+/pirexLogo.PNG
+/tabGUI/
 /textProcessor/
-=======
->>>>>>> branch 'master' of https://github.com/Talal916/Pirex.git
+/transparentPirex.png
+/transparentX.png

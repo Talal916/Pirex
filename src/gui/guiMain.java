@@ -1,6 +1,6 @@
 package gui;
 
-import java.awt.EventQueue;
+import java.awt.EventQueue; 
 import java.awt.Frame;
 
 import javax.swing.ImageIcon;
@@ -26,6 +26,7 @@ import java.awt.event.WindowAdapter;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.UIManager;
 
 public class guiMain extends Frame implements WindowListener
 {
@@ -41,6 +42,11 @@ public class guiMain extends Frame implements WindowListener
 	 */
 	public static void main(String[] args) 
 	{
+		try {
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
