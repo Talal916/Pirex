@@ -1,6 +1,6 @@
 ## Pirex
 
-#Team:
+Team:
 Talal Jawaid
 Shiwei Fang 
 Svetlana Oliferchik
